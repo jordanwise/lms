@@ -1,0 +1,430 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Last Player Standing - Game Backend
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Timeout: 10
+    MemorySize: 256
+    Architectures:
+      - x86_64
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref LMSTable
+        DYNAMODB_ENDPOINT: ""
+
+Resources:
+  # ──────────────────────────────────────────────
+  # DynamoDB Table
+  # ──────────────────────────────────────────────
+  LMSTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: LMS
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+        - AttributeName: GSI1PK
+          AttributeType: S
+        - AttributeName: GSI2PK
+          AttributeType: S
+        - AttributeName: GSI2SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: GSI1
+          KeySchema:
+            - AttributeName: GSI1PK
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+        - IndexName: GSI2
+          KeySchema:
+            - AttributeName: GSI2PK
+              KeyType: HASH
+            - AttributeName: GSI2SK
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+
+  # ──────────────────────────────────────────────
+  # User Endpoints
+  # ──────────────────────────────────────────────
+  CreateUserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/createUser.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/createUser.ts
+
+  GetUserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/getUser.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/{userId}
+            Method: get
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/getUser.ts
+
+  UpdatePreferencesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/updatePreferences.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/preferences
+            Method: patch
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/updatePreferences.ts
+
+  ListUserGamesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/listUserGames.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/games
+            Method: get
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/listUserGames.ts
+
+  # ──────────────────────────────────────────────
+  # Game Endpoints
+  # ──────────────────────────────────────────────
+  CreateGameFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/createGame.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/createGame.ts
+
+  GetGameFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/getGame.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}
+            Method: get
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/getGame.ts
+
+  GetGameByPinFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/getGameByPin.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/pin/{pin}
+            Method: get
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/getGameByPin.ts
+
+  ShareGameFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/shareGame.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/share
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/shareGame.ts
+
+  JoinGameFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/joinGame.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/join
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/joinGame.ts
+
+  # ──────────────────────────────────────────────
+  # Round Endpoints
+  # ──────────────────────────────────────────────
+  AddRoundFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/addRound.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/rounds
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/addRound.ts
+
+  OpenPicksFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/openPicks.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/rounds/{roundNum}/open
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/openPicks.ts
+
+  SubmitPickFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/submitPick.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/rounds/{roundNum}/picks
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/submitPick.ts
+
+  LockRoundFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/lockRound.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/rounds/{roundNum}/lock
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/lockRound.ts
+
+  SubmitResultsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/submitResults.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/rounds/{roundNum}/results
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/submitResults.ts
+
+  ApplyEliminationsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/applyEliminations.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/rounds/{roundNum}/eliminate
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/applyEliminations.ts
+
+  CancelGameFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/cancelGame.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/cancel
+            Method: post
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/cancelGame.ts
+
+  ListPlayersFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/handlers/listPlayers.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /games/{gameId}/players
+            Method: get
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: es2020
+        EntryPoints:
+          - src/handlers/listPlayers.ts
+
+Outputs:
+  ApiUrl:
+    Description: API Gateway endpoint URL
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+  LMSTableName:
+    Description: DynamoDB table name
+    Value: !Ref LMSTable

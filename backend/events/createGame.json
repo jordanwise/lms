@@ -1,0 +1,6 @@
+{
+  "httpMethod": "POST",
+  "path": "/games",
+  "headers": { "Content-Type": "application/json" },
+  "body": "{\"name\":\"Test Game\",\"fee\":10,\"leagues\":[\"premier-league\"],\"rollover\":true,\"splitPot\":false,\"creatorId\":\"user-alice\"}"
+}

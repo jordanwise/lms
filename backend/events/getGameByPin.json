@@ -1,0 +1,5 @@
+{
+  "httpMethod": "GET",
+  "path": "/games/pin/ABC12345",
+  "pathParameters": { "pin": "ABC12345" }
+}

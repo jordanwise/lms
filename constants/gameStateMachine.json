@@ -1,0 +1,187 @@
+{
+  "id": "last-player-standing",
+  "version": "1.0.0",
+  "initial": "created",
+  "states": {
+    "created": {
+      "description": "Game created with settings (name, PIN, fee, leagues, rollover/split pot). Not yet shared."
+    },
+    "waiting_for_players": {
+      "description": "Game shared via link/PIN. Players join by paying the admission fee."
+    },
+    "active": {
+      "description": "Game in progress. Creator adds rounds by choosing matchdays from selected leagues.",
+      "substates": {
+        "pending": {
+          "description": "Round created — matchday chosen by creator, picks not yet open."
+        },
+        "picking": {
+          "description": "Players selecting one team from the matchday fixtures. No repeat picks allowed."
+        },
+        "locked": {
+          "description": "Pick deadline passed. Matches are being played."
+        },
+        "processing": {
+          "description": "Match results available. Calculating eliminations based on pick outcomes."
+        },
+        "complete": {
+          "description": "Eliminations applied. Waiting for creator to add next round or game to end."
+        }
+      }
+    },
+    "completed": {
+      "description": "Game finished. Winner takes pot, or pot split among last remaining players."
+    },
+    "rollover_pending": {
+      "description": "No singular winner — all remaining players eliminated in the same round. Collecting repayment of original fee from ALL original participants. Prize fund doubles."
+    },
+    "cancelled": {
+      "description": "Game cancelled by creator. Fees refunded to players."
+    }
+  },
+  "playerStatuses": {
+    "alive": {
+      "description": "Player is active in the game and can make picks."
+    },
+    "eliminated": {
+      "description": "Player's team lost or drew. They are out of the game."
+    },
+    "deferred": {
+      "description": "Player's chosen match was postponed. They advance to the next round but must succeed on both their original and new pick when the postponed match is rescheduled."
+    }
+  },
+  "pickOutcomes": {
+    "win": {
+      "description": "Team won the match. Player survives to the next round.",
+      "playerEffect": "alive"
+    },
+    "loss": {
+      "description": "Team lost the match. Player is eliminated.",
+      "playerEffect": "eliminated"
+    },
+    "draw": {
+      "description": "Team drew the match. Player is eliminated.",
+      "playerEffect": "eliminated"
+    },
+    "postponed": {
+      "description": "Match was postponed. Player advances but carries a deferred obligation to the rescheduled matchday.",
+      "playerEffect": "deferred"
+    }
+  },
+  "transitions": [
+    {
+      "from": "created",
+      "to": "waiting_for_players",
+      "event": "SHARE_GAME",
+      "description": "Creator shares the game link/PIN. Game opens for players to join."
+    },
+    {
+      "from": "created",
+      "to": "cancelled",
+      "event": "CANCEL",
+      "description": "Creator cancels the game before sharing."
+    },
+    {
+      "from": "waiting_for_players",
+      "to": "active",
+      "event": "ADD_ROUND",
+      "description": "Creator adds the first round by choosing a matchday. Game becomes active."
+    },
+    {
+      "from": "waiting_for_players",
+      "to": "cancelled",
+      "event": "CANCEL",
+      "description": "Creator cancels the game while players are joining."
+    },
+    {
+      "from": "active.pending",
+      "to": "active.picking",
+      "event": "OPEN_PICKS",
+      "description": "Creator opens picks for the round. Players can now select their team."
+    },
+    {
+      "from": "active.picking",
+      "to": "active.locked",
+      "event": "DEADLINE_REACHED",
+      "description": "Pick deadline has passed. No more picks accepted."
+    },
+    {
+      "from": "active.locked",
+      "to": "active.processing",
+      "event": "RESULTS_AVAILABLE",
+      "description": "Match results are in. System processes outcomes for each player's pick."
+    },
+    {
+      "from": "active.processing",
+      "to": "active.complete",
+      "event": "ELIMINATIONS_APPLIED",
+      "description": "Eliminations calculated and applied. Round is complete."
+    },
+    {
+      "from": "active.complete",
+      "to": "active.pending",
+      "event": "ADD_ROUND",
+      "description": "Creator adds the next round. Surviving players continue.",
+      "guard": "hasMultipleSurvivors"
+    },
+    {
+      "from": "active.complete",
+      "to": "completed",
+      "event": "WINNER_DETERMINED",
+      "description": "Only one player remains. They win the entire pot.",
+      "guard": "exactlyOneSurvivor"
+    },
+    {
+      "from": "active.complete",
+      "to": "completed",
+      "event": "ALL_ELIMINATED_SPLIT",
+      "description": "All remaining players eliminated in the same round. Pot is split equally among them.",
+      "guard": "allEliminatedAndSplitPot"
+    },
+    {
+      "from": "active.complete",
+      "to": "rollover_pending",
+      "event": "ALL_ELIMINATED_ROLLOVER",
+      "description": "All remaining players eliminated. Rollover is enabled — collecting repayment from all original participants.",
+      "guard": "allEliminatedAndRollover"
+    },
+    {
+      "from": "rollover_pending",
+      "to": "active",
+      "event": "ROLLOVER_FEES_COLLECTED",
+      "description": "All original participants have repaid the fee. Prize fund doubles. Game restarts with all original players."
+    },
+    {
+      "from": "rollover_pending",
+      "to": "cancelled",
+      "event": "CANCEL",
+      "description": "Creator cancels during rollover fee collection."
+    },
+    {
+      "from": "active",
+      "to": "cancelled",
+      "event": "CANCEL",
+      "description": "Creator cancels the game mid-play."
+    }
+  ],
+  "guards": {
+    "hasMultipleSurvivors": {
+      "description": "More than one player has 'alive' status after the round."
+    },
+    "exactlyOneSurvivor": {
+      "description": "Exactly one player has 'alive' status — they are the winner."
+    },
+    "allEliminatedAndSplitPot": {
+      "description": "All remaining players were eliminated in the same round AND the game has 'splitPot' enabled."
+    },
+    "allEliminatedAndRollover": {
+      "description": "All remaining players were eliminated in the same round AND the game has 'rollover' enabled (takes precedence over splitPot if both set)."
+    },
+    "noRepeatPick": {
+      "description": "Player has not previously picked this team in any earlier round of the game."
+    },
+    "playerHasDeferredPick": {
+      "description": "Player has a deferred obligation from a postponed match. They must succeed on both picks in the round containing the rescheduled fixture."
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "httpMethod": "POST",
+  "path": "/users",
+  "headers": { "Content-Type": "application/json" },
+  "body": "{\"displayName\":\"Test User\"}"
+}

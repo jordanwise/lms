@@ -1,0 +1,7 @@
+{
+  "httpMethod": "POST",
+  "path": "/games/game-001/rounds/3/results",
+  "pathParameters": { "gameId": "game-001", "roundNum": "3" },
+  "headers": { "Content-Type": "application/json" },
+  "body": "{\"results\":[{\"teamId\":\"liverpool\",\"outcome\":\"win\"},{\"teamId\":\"chelsea\",\"outcome\":\"loss\"},{\"teamId\":\"tottenham\",\"outcome\":\"win\"},{\"teamId\":\"brighton\",\"outcome\":\"postponed\"}]}"
+}

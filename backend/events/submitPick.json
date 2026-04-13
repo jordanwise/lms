@@ -1,0 +1,7 @@
+{
+  "httpMethod": "POST",
+  "path": "/games/game-001/rounds/4/picks",
+  "pathParameters": { "gameId": "game-001", "roundNum": "4" },
+  "headers": { "Content-Type": "application/json" },
+  "body": "{\"userId\":\"user-alice\",\"teamId\":\"brighton\",\"teamName\":\"Brighton\"}"
+}

@@ -1,0 +1,5020 @@
+{
+  "league": "en.2",
+  "leagueName": "Championship",
+  "season": "2021-22",
+  "matches": [
+    {
+      "date": "2021-08-06",
+      "matchday": 1,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-07",
+      "matchday": 1,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-08",
+      "matchday": 1,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-08",
+      "matchday": 1,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 5,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-14",
+      "matchday": 2,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-17",
+      "matchday": 3,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-17",
+      "matchday": 3,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-17",
+      "matchday": 3,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-17",
+      "matchday": 3,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-17",
+      "matchday": 3,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-17",
+      "matchday": 3,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-17",
+      "matchday": 3,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-18",
+      "matchday": 3,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-18",
+      "matchday": 3,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-18",
+      "matchday": 3,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-18",
+      "matchday": 3,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-18",
+      "matchday": 3,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-20",
+      "matchday": 4,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-21",
+      "matchday": 4,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 0,
+      "awayScore": 5,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Reading FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-08-28",
+      "matchday": 5,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-10",
+      "matchday": 6,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 6,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 3,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-11",
+      "matchday": 6,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-12",
+      "matchday": 6,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-14",
+      "matchday": 7,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-14",
+      "matchday": 7,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-14",
+      "matchday": 7,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-14",
+      "matchday": 7,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-14",
+      "matchday": 7,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-14",
+      "matchday": 7,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-15",
+      "matchday": 7,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-15",
+      "matchday": 7,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-15",
+      "matchday": 7,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-15",
+      "matchday": 7,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-15",
+      "matchday": 7,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-15",
+      "matchday": 7,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 3,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-18",
+      "matchday": 8,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-24",
+      "matchday": 9,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-24",
+      "matchday": 9,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 5,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-25",
+      "matchday": 9,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-28",
+      "matchday": 10,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 0,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-28",
+      "matchday": 10,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-28",
+      "matchday": 10,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-28",
+      "matchday": 10,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-28",
+      "matchday": 10,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-28",
+      "matchday": 10,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-29",
+      "matchday": 10,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-29",
+      "matchday": 10,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-29",
+      "matchday": 10,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-29",
+      "matchday": 10,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 5,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-29",
+      "matchday": 10,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-09-29",
+      "matchday": 10,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-01",
+      "matchday": 11,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-02",
+      "matchday": 11,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-15",
+      "matchday": 12,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-16",
+      "matchday": 12,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-17",
+      "matchday": 12,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-19",
+      "matchday": 13,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-19",
+      "matchday": 13,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-19",
+      "matchday": 13,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-19",
+      "matchday": 13,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-19",
+      "matchday": 13,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-20",
+      "matchday": 13,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-20",
+      "matchday": 13,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-20",
+      "matchday": 13,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-20",
+      "matchday": 13,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-20",
+      "matchday": 13,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-20",
+      "matchday": 13,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-20",
+      "matchday": 13,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-23",
+      "matchday": 14,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-24",
+      "matchday": 14,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-24",
+      "matchday": 14,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 0,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-29",
+      "matchday": 15,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 3,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-10-30",
+      "matchday": 15,
+      "homeTeam": "Reading FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-02",
+      "matchday": 16,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-02",
+      "matchday": 16,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-02",
+      "matchday": 16,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-02",
+      "matchday": 16,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-02",
+      "matchday": 16,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-02",
+      "matchday": 16,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-03",
+      "matchday": 16,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-03",
+      "matchday": 16,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-03",
+      "matchday": 16,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-03",
+      "matchday": 16,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-03",
+      "matchday": 16,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 0,
+      "awayScore": 7,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-03",
+      "matchday": 16,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-06",
+      "matchday": 17,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-19",
+      "matchday": 18,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-20",
+      "matchday": 18,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-21",
+      "matchday": 18,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-23",
+      "matchday": 19,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-23",
+      "matchday": 19,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-23",
+      "matchday": 19,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-23",
+      "matchday": 19,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-23",
+      "matchday": 19,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-24",
+      "matchday": 19,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-24",
+      "matchday": 19,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-24",
+      "matchday": 19,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-24",
+      "matchday": 19,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-24",
+      "matchday": 19,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-24",
+      "matchday": 19,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-24",
+      "matchday": 19,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-26",
+      "matchday": 20,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Reading FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-27",
+      "matchday": 20,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-28",
+      "matchday": 20,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-11-29",
+      "matchday": 20,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-03",
+      "matchday": 21,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-04",
+      "matchday": 21,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-05",
+      "matchday": 21,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-11",
+      "matchday": 22,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-17",
+      "matchday": 23,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-18",
+      "matchday": 23,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-18",
+      "matchday": 23,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-18",
+      "matchday": 23,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-18",
+      "matchday": 23,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-18",
+      "matchday": 23,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-20",
+      "matchday": 23,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-26",
+      "matchday": 24,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-26",
+      "matchday": 24,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-27",
+      "matchday": 24,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-27",
+      "matchday": 24,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-29",
+      "matchday": 25,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-29",
+      "matchday": 25,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-29",
+      "matchday": 25,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-30",
+      "matchday": 25,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-30",
+      "matchday": 25,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-30",
+      "matchday": 25,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2021-12-30",
+      "matchday": 25,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-01",
+      "matchday": 26,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-02",
+      "matchday": 26,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-02",
+      "matchday": 26,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-02",
+      "matchday": 26,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-02",
+      "matchday": 26,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-03",
+      "matchday": 26,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-03",
+      "matchday": 26,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-11",
+      "matchday": 25,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 0,
+      "awayScore": 7,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 6,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-15",
+      "matchday": 27,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-16",
+      "matchday": 27,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-18",
+      "matchday": 24,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-18",
+      "matchday": 24,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 6,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-19",
+      "matchday": 24,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-19",
+      "matchday": 23,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 3,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-22",
+      "matchday": 28,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-24",
+      "matchday": 28,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-25",
+      "matchday": 25,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-25",
+      "matchday": 24,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-25",
+      "matchday": 23,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-25",
+      "matchday": 23,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-25",
+      "matchday": 26,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-26",
+      "matchday": 25,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-28",
+      "matchday": 29,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-29",
+      "matchday": 29,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-30",
+      "matchday": 29,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-01-30",
+      "matchday": 29,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-01",
+      "matchday": 25,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-01",
+      "matchday": 23,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-02",
+      "matchday": 30,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-02",
+      "matchday": 30,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-04",
+      "matchday": 30,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-05",
+      "matchday": 30,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-05",
+      "matchday": 30,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-05",
+      "matchday": 30,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-08",
+      "matchday": 31,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-08",
+      "matchday": 31,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-08",
+      "matchday": 31,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-08",
+      "matchday": 31,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-08",
+      "matchday": 31,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-09",
+      "matchday": 31,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-09",
+      "matchday": 31,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-09",
+      "matchday": 31,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-09",
+      "matchday": 31,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-09",
+      "matchday": 31,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-09",
+      "matchday": 31,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-09",
+      "matchday": 31,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-12",
+      "matchday": 32,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-13",
+      "matchday": 32,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-14",
+      "matchday": 32,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-15",
+      "matchday": 25,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-15",
+      "matchday": 24,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-15",
+      "matchday": 30,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-16",
+      "matchday": 24,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-19",
+      "matchday": 33,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-22",
+      "matchday": 34,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-22",
+      "matchday": 34,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-22",
+      "matchday": 34,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-22",
+      "matchday": 34,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-22",
+      "matchday": 34,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-23",
+      "matchday": 34,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-23",
+      "matchday": 34,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-23",
+      "matchday": 34,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-23",
+      "matchday": 34,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-23",
+      "matchday": 34,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-23",
+      "matchday": 34,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-26",
+      "matchday": 35,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-02-28",
+      "matchday": 35,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-01",
+      "matchday": 23,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-04",
+      "matchday": 36,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-04",
+      "matchday": 36,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-05",
+      "matchday": 36,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-08",
+      "matchday": 24,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-08",
+      "matchday": 33,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-08",
+      "matchday": 26,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 5,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-08",
+      "matchday": 26,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-08",
+      "matchday": 26,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-08",
+      "matchday": 26,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-11",
+      "matchday": 37,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Derby County FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-12",
+      "matchday": 37,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-13",
+      "matchday": 37,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-15",
+      "matchday": 38,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-15",
+      "matchday": 38,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-15",
+      "matchday": 38,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-15",
+      "matchday": 38,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-15",
+      "matchday": 38,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-16",
+      "matchday": 38,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-16",
+      "matchday": 38,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-16",
+      "matchday": 38,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-16",
+      "matchday": 38,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-16",
+      "matchday": 38,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-16",
+      "matchday": 38,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-16",
+      "matchday": 38,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-19",
+      "matchday": 39,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-19",
+      "matchday": 39,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-19",
+      "matchday": 39,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-19",
+      "matchday": 39,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-19",
+      "matchday": 39,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-19",
+      "matchday": 39,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-19",
+      "matchday": 39,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-19",
+      "matchday": 39,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-03-20",
+      "matchday": 39,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-01",
+      "matchday": 40,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 0,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 0,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-02",
+      "matchday": 40,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-03",
+      "matchday": 40,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-05",
+      "matchday": 24,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-05",
+      "matchday": 22,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-05",
+      "matchday": 39,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-05",
+      "matchday": 30,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-05",
+      "matchday": 30,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-06",
+      "matchday": 30,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-06",
+      "matchday": 30,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-06",
+      "matchday": 30,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-09",
+      "matchday": 41,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-10",
+      "matchday": 41,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-11",
+      "matchday": 41,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 2,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-15",
+      "matchday": 42,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Reading FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 4,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 6,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-18",
+      "matchday": 43,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-19",
+      "matchday": 43,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-22",
+      "matchday": 44,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Reading FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Fulham FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-23",
+      "matchday": 44,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Millwall FC",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-25",
+      "matchday": 44,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-26",
+      "matchday": 39,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-26",
+      "matchday": 34,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 3,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-26",
+      "matchday": 27,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-27",
+      "matchday": 39,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-29",
+      "matchday": 45,
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Barnsley FC",
+      "awayTeam": "Preston North End FC",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Swansea City AFC",
+      "homeScore": 5,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Birmingham City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Reading FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Peterborough United FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Stoke City FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Hull City AFC",
+      "homeScore": 5,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Blackpool FC",
+      "awayTeam": "Derby County FC",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-04-30",
+      "matchday": 45,
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-02",
+      "matchday": 45,
+      "homeTeam": "Fulham FC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 7,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-03",
+      "matchday": 33,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Cardiff City FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Barnsley FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Coventry City FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Fulham FC",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Peterborough United FC",
+      "awayTeam": "Blackpool FC",
+      "homeScore": 5,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Reading FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Bristol City FC",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Millwall FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-07",
+      "matchday": 46,
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-13",
+      "matchday": 0,
+      "homeTeam": "Luton Town FC",
+      "awayTeam": "Huddersfield Town AFC",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-14",
+      "matchday": 0,
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-16",
+      "matchday": 0,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Luton Town FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-17",
+      "matchday": 0,
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Sheffield United FC",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "completed"
+    },
+    {
+      "date": "2022-05-29",
+      "matchday": 0,
+      "homeTeam": "Huddersfield Town AFC",
+      "awayTeam": "Nottingham Forest FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "completed"
+    }
+  ]
+}

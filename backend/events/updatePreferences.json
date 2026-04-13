@@ -1,0 +1,7 @@
+{
+  "httpMethod": "PATCH",
+  "path": "/users/user-alice/preferences",
+  "pathParameters": { "userId": "user-alice" },
+  "headers": { "Content-Type": "application/json" },
+  "body": "{\"notificationsEnabled\":false,\"theme\":\"light\"}"
+}

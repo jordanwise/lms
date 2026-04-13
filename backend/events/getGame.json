@@ -1,0 +1,5 @@
+{
+  "httpMethod": "GET",
+  "path": "/games/game-001",
+  "pathParameters": { "gameId": "game-001" }
+}

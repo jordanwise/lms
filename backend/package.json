@@ -1,0 +1,29 @@
+{
+  "name": "lms-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "sam build",
+    "start": "./scripts/start-local.sh",
+    "start:full": "./scripts/start-local.sh --full",
+    "dev-server": "tsx scripts/dev-server.ts",
+    "local:db": "docker-compose up -d",
+    "local:setup": "./scripts/setup-local.sh",
+    "local:seed": "./scripts/seed-data.sh",
+    "local:reset": "./scripts/reset-db.sh",
+    "local:api": "sam local start-api --docker-network lms-net --env-vars env.local.json --warm-containers EAGER",
+    "local:invoke": "sam local invoke --docker-network lms-net --env-vars env.local.json",
+    "deploy": "sam deploy --guided"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.700.0",
+    "@aws-sdk/lib-dynamodb": "^3.700.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.21.0",
+    "typescript": "~5.9.2"
+  }
+}

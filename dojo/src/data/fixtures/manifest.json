@@ -1,0 +1,352 @@
+{
+  "generatedAt": "2026-03-29T11:16:56.248Z",
+  "totalMatches": 19960,
+  "seasons": [
+    "2015-16",
+    "2016-17",
+    "2017-18",
+    "2018-19",
+    "2019-20",
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25"
+  ],
+  "leagues": {
+    "en.1": "Premier League",
+    "en.2": "Championship",
+    "en.3": "League One",
+    "en.4": "League Two",
+    "sco.1": "Scottish Premiership",
+    "en.5": "National League"
+  },
+  "files": [
+    {
+      "league": "en.1",
+      "season": "2015-16",
+      "filename": "en.1_2015-16.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.2",
+      "season": "2015-16",
+      "filename": "en.2_2015-16.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.3",
+      "season": "2015-16",
+      "filename": "en.3_2015-16.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.4",
+      "season": "2015-16",
+      "filename": "en.4_2015-16.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.5",
+      "season": "2015-16",
+      "filename": "en.5_2015-16.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.1",
+      "season": "2016-17",
+      "filename": "en.1_2016-17.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.5",
+      "season": "2016-17",
+      "filename": "en.5_2016-17.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.1",
+      "season": "2017-18",
+      "filename": "en.1_2017-18.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.5",
+      "season": "2017-18",
+      "filename": "en.5_2017-18.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.1",
+      "season": "2018-19",
+      "filename": "en.1_2018-19.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.2",
+      "season": "2018-19",
+      "filename": "en.2_2018-19.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.3",
+      "season": "2018-19",
+      "filename": "en.3_2018-19.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.4",
+      "season": "2018-19",
+      "filename": "en.4_2018-19.json",
+      "matchCount": 552
+    },
+    {
+      "league": "sco.1",
+      "season": "2018-19",
+      "filename": "sco.1_2018-19.json",
+      "matchCount": 198
+    },
+    {
+      "league": "en.5",
+      "season": "2018-19",
+      "filename": "en.5_2018-19.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.1",
+      "season": "2019-20",
+      "filename": "en.1_2019-20.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.2",
+      "season": "2019-20",
+      "filename": "en.2_2019-20.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.3",
+      "season": "2019-20",
+      "filename": "en.3_2019-20.json",
+      "matchCount": 506
+    },
+    {
+      "league": "en.4",
+      "season": "2019-20",
+      "filename": "en.4_2019-20.json",
+      "matchCount": 552
+    },
+    {
+      "league": "sco.1",
+      "season": "2019-20",
+      "filename": "sco.1_2019-20.json",
+      "matchCount": 198
+    },
+    {
+      "league": "en.5",
+      "season": "2019-20",
+      "filename": "en.5_2019-20.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.1",
+      "season": "2020-21",
+      "filename": "en.1_2020-21.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.2",
+      "season": "2020-21",
+      "filename": "en.2_2020-21.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.3",
+      "season": "2020-21",
+      "filename": "en.3_2020-21.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.4",
+      "season": "2020-21",
+      "filename": "en.4_2020-21.json",
+      "matchCount": 552
+    },
+    {
+      "league": "sco.1",
+      "season": "2020-21",
+      "filename": "sco.1_2020-21.json",
+      "matchCount": 198
+    },
+    {
+      "league": "en.5",
+      "season": "2020-21",
+      "filename": "en.5_2020-21.json",
+      "matchCount": 506
+    },
+    {
+      "league": "en.1",
+      "season": "2021-22",
+      "filename": "en.1_2021-22.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.2",
+      "season": "2021-22",
+      "filename": "en.2_2021-22.json",
+      "matchCount": 557
+    },
+    {
+      "league": "en.5",
+      "season": "2021-22",
+      "filename": "en.5_2021-22.json",
+      "matchCount": 506
+    },
+    {
+      "league": "en.1",
+      "season": "2022-23",
+      "filename": "en.1_2022-23.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.2",
+      "season": "2022-23",
+      "filename": "en.2_2022-23.json",
+      "matchCount": 557
+    },
+    {
+      "league": "en.5",
+      "season": "2022-23",
+      "filename": "en.5_2022-23.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.1",
+      "season": "2023-24",
+      "filename": "en.1_2023-24.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.2",
+      "season": "2023-24",
+      "filename": "en.2_2023-24.json",
+      "matchCount": 557
+    },
+    {
+      "league": "en.5",
+      "season": "2023-24",
+      "filename": "en.5_2023-24.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.1",
+      "season": "2024-25",
+      "filename": "en.1_2024-25.json",
+      "matchCount": 380
+    },
+    {
+      "league": "en.2",
+      "season": "2024-25",
+      "filename": "en.2_2024-25.json",
+      "matchCount": 557
+    },
+    {
+      "league": "en.3",
+      "season": "2024-25",
+      "filename": "en.3_2024-25.json",
+      "matchCount": 552
+    },
+    {
+      "league": "en.4",
+      "season": "2024-25",
+      "filename": "en.4_2024-25.json",
+      "matchCount": 552
+    },
+    {
+      "league": "sco.1",
+      "season": "2024-25",
+      "filename": "sco.1_2024-25.json",
+      "matchCount": 228
+    },
+    {
+      "league": "en.5",
+      "season": "2024-25",
+      "filename": "en.5_2024-25.json",
+      "matchCount": 552
+    }
+  ],
+  "missing": [
+    {
+      "league": "sco.1",
+      "season": "2015-16"
+    },
+    {
+      "league": "en.2",
+      "season": "2016-17"
+    },
+    {
+      "league": "en.3",
+      "season": "2016-17"
+    },
+    {
+      "league": "en.4",
+      "season": "2016-17"
+    },
+    {
+      "league": "sco.1",
+      "season": "2016-17"
+    },
+    {
+      "league": "en.2",
+      "season": "2017-18"
+    },
+    {
+      "league": "en.3",
+      "season": "2017-18"
+    },
+    {
+      "league": "en.4",
+      "season": "2017-18"
+    },
+    {
+      "league": "sco.1",
+      "season": "2017-18"
+    },
+    {
+      "league": "en.3",
+      "season": "2021-22"
+    },
+    {
+      "league": "en.4",
+      "season": "2021-22"
+    },
+    {
+      "league": "sco.1",
+      "season": "2021-22"
+    },
+    {
+      "league": "en.3",
+      "season": "2022-23"
+    },
+    {
+      "league": "en.4",
+      "season": "2022-23"
+    },
+    {
+      "league": "sco.1",
+      "season": "2022-23"
+    },
+    {
+      "league": "en.3",
+      "season": "2023-24"
+    },
+    {
+      "league": "en.4",
+      "season": "2023-24"
+    },
+    {
+      "league": "sco.1",
+      "season": "2023-24"
+    }
+  ]
+}
