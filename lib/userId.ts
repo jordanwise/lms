@@ -1,6 +1,13 @@
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 
 const USER_ID_FILE = `${FileSystem.documentDirectory}lms_device_user_id.txt`;
+
+function generateUUID(): string {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = (Math.random() * 16) | 0;
+    return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+  });
+}
 
 /**
  * Returns the persisted device-local user ID, creating and storing one if it
@@ -19,7 +26,7 @@ export async function getOrCreateUserId(): Promise<string> {
     // File doesn't exist yet — fall through to create
   }
 
-  const id = crypto.randomUUID();
+  const id = generateUUID();
   await FileSystem.writeAsStringAsync(USER_ID_FILE, id);
   return id;
 }
