@@ -1,9 +1,9 @@
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { randomUUID } from 'crypto';
-import { putItem } from '../lib/dynamo';
+import { transactWrite, tableName } from '../lib/dynamo';
 import { Keys, GSIKeys } from '../lib/keys';
 import { created, badRequest, serverError, parseBody } from '../lib/response';
-import type { CreateGameRequest, GameMetaItem } from '../types';
+import type { CreateGameRequest, GameMetaItem, PlayerItem } from '../types';
 
 function generatePin(): string {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -22,12 +22,18 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
     if (!body.fee || body.fee < 5) return badRequest('fee must be at least 5');
     if (!body.leagues?.length) return badRequest('at least one league is required');
     if (!body.creatorId) return badRequest('creatorId is required');
+    if (!body.displayName?.trim()) return badRequest('displayName is required');
 
     const gameId = randomUUID();
     const pin = generatePin();
     const now = new Date().toISOString();
+    const table = tableName();
 
-    const item: GameMetaItem = {
+    // Game starts in waiting_for_players — creator is auto-joined as first player.
+    // NOTE: This skips the created→waiting_for_players state transition that
+    // shareGame.ts was designed to handle. Revisit when the full game lifecycle
+    // (invite flow, draft mode) is implemented.
+    const gameMeta: GameMetaItem = {
       ...Keys.gameMeta(gameId),
       ...GSIKeys.pinLookup(pin),
       gameId,
@@ -37,27 +43,45 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
       leagues: body.leagues,
       rollover: body.rollover ?? false,
       splitPot: body.splitPot ?? false,
-      state: 'created',
+      state: 'waiting_for_players',
       currentRound: 0,
       creatorId: body.creatorId,
-      prizePool: 0,
-      playerCount: 0,
+      prizePool: body.fee,
+      playerCount: 1,
       version: 1,
       createdAt: now,
       updatedAt: now,
     };
 
-    await putItem(item as any);
+    const creatorPlayer: PlayerItem = {
+      ...Keys.player(gameId, body.creatorId),
+      ...GSIKeys.userGame(body.creatorId, gameId),
+      gameId,
+      userId: body.creatorId,
+      displayName: body.displayName.trim(),
+      status: 'alive',
+      paidFee: true,
+      gameName: gameMeta.name,
+      gameState: gameMeta.state,
+      joinedAt: now,
+    };
+
+    await transactWrite({
+      TransactItems: [
+        { Put: { TableName: table, Item: gameMeta as any } },
+        { Put: { TableName: table, Item: creatorPlayer as any } },
+      ],
+    });
 
     return created({
       gameId,
       pin,
-      name: item.name,
-      state: item.state,
-      fee: item.fee,
-      leagues: item.leagues,
-      rollover: item.rollover,
-      splitPot: item.splitPot,
+      name: gameMeta.name,
+      state: gameMeta.state,
+      fee: gameMeta.fee,
+      leagues: gameMeta.leagues,
+      rollover: gameMeta.rollover,
+      splitPot: gameMeta.splitPot,
     });
   } catch (err) {
     console.error('createGame error:', err);

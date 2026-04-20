@@ -113,3 +113,41 @@ npm run local:reset    # Drop table + re-create + re-seed
 
 Figma MCP guides are included for when a proper license is acquired.
 See `figma_setup.md` and `figma_connect.md` for details.
+
+---
+
+## Known Limitations & TODOs
+
+### Auth & Identity
+
+Currently there is **no real authentication**. A random UUID is generated on first launch and persisted in `expo-secure-store` (`lib/userId.ts`). This acts as a temporary device-local user identity.
+
+**Implications:**
+- No login/logout — identity is tied to a single device install
+- Uninstalling the app or clearing app storage generates a new UUID, losing all game associations
+- No way to recover access to games from a different device
+- No user profiles — display name is entered fresh on each game create/join
+
+**When implementing auth, replace:**
+- `lib/userId.ts` → swap `getOrCreateUserId()` with the real auth provider's user ID (e.g. Cognito `sub`, Firebase UID)
+- `lib/api.ts` → add `Authorization` header with the auth token
+- `backend/src/handlers/createUser.ts` → wire up to the auth provider's user creation hook
+- Display name → persist as a user profile in DynamoDB and reuse across games
+
+### Game State Model
+
+`createGame` currently creates games directly in `waiting_for_players` state, skipping the `created → waiting_for_players` transition that `shareGame.ts` was originally designed to handle. The intent was to support a "draft/invite" mode before opening the game to joiners.
+
+**When implementing the full invite flow:**
+- Restore `created` as the initial state
+- Use `shareGame` to transition to `waiting_for_players`
+- Consider requiring the creator to explicitly open the game before the PIN is shareable
+
+### PIN Uniqueness
+
+Game PINs are randomly generated but uniqueness is not strictly enforced — there is no conditional write guarding against collision. In practice, the 8-character alphanumeric PIN space (~2.8 trillion combinations) makes collisions extremely unlikely, but a production system should add a uniqueness check (e.g. conditional `PutItem` on the GSI1 PIN key with retry on conflict).
+
+### Stale Game State in Account Screen
+
+`PlayerItem.gameState` (used by `listUserGames`) is a snapshot written at join time and is **not updated** when the game transitions state. Active games will show `waiting_for_players` until a fan-out update mechanism is added to all game-state transition handlers.
+

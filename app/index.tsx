@@ -1,8 +1,11 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
+import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { MenuButton } from '@/components/ui/MenuButton';
 import { Colors, Spacing, FontSize } from '@/constants/theme';
 
 export default function HomeScreen() {
+  const router = useRouter();
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
@@ -32,6 +35,11 @@ export default function HomeScreen() {
           <MenuButton label="Create Public Game" href="/public/create" />
           <MenuButton label="Join Public Game" href="/public/join" />
         </View>
+
+        <Pressable style={styles.accountButton} onPress={() => router.push('/account')}>
+          <Ionicons name="person-circle-outline" size={32} color={Colors.textMuted} />
+          <Text style={styles.accountLabel}>Account</Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -50,6 +58,15 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     marginBottom: Spacing.xxl,
+  },
+  accountButton: {
+    alignItems: 'center',
+    paddingVertical: Spacing.lg,
+  },
+  accountLabel: {
+    fontSize: FontSize.sm,
+    color: Colors.textMuted,
+    marginTop: 4,
   },
   title: {
     fontSize: FontSize.title,

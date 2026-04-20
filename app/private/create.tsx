@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { View, Text, ScrollView, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { useState, useEffect } from 'react';
+import { View, Text, ScrollView, StyleSheet, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { FormInput } from '@/components/ui/FormInput';
 import { FeeStepper } from '@/components/ui/FeeStepper';
@@ -7,42 +7,64 @@ import { Checkbox } from '@/components/ui/Checkbox';
 import { LeagueSelector } from '@/components/ui/LeagueSelector';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { Colors, Spacing, FontSize } from '@/constants/theme';
-
-function generatePin(): string {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let pin = '';
-  for (let i = 0; i < 8; i++) {
-    pin += chars[Math.floor(Math.random() * chars.length)];
-  }
-  return pin;
-}
+import { getOrCreateUserId } from '@/lib/userId';
+import { createGame } from '@/lib/api';
 
 export default function CreatePrivateGame() {
   const router = useRouter();
+  const [userId, setUserId] = useState<string | null>(null);
+  const [displayName, setDisplayName] = useState('');
   const [gameName, setGameName] = useState('');
-  const gamePin = useMemo(() => generatePin(), []);
   const [fee, setFee] = useState(5);
   const [leagues, setLeagues] = useState<string[]>([]);
   const [rollover, setRollover] = useState(false);
   const [splitPot, setSplitPot] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const isValid = gameName.trim().length > 0
-    && fee >= 5
-    && leagues.length > 0;
+  useEffect(() => {
+    getOrCreateUserId().then(setUserId);
+  }, []);
 
-  const handleCreate = () => {
-    if (!isValid) return;
-    router.push({
-      pathname: '/private/confirm',
-      params: {
-        gameName,
-        gamePin,
-        fee: String(fee),
-        leagues: JSON.stringify(leagues),
-        rollover: String(rollover),
-        splitPot: String(splitPot),
-      },
-    });
+  const isValid =
+    !!userId &&
+    displayName.trim().length > 0 &&
+    gameName.trim().length > 0 &&
+    fee >= 5 &&
+    leagues.length > 0;
+
+  const handleCreate = async () => {
+    if (!isValid || loading) return;
+    setLoading(true);
+    try {
+      const result = await createGame({
+        name: gameName,
+        fee,
+        leagues,
+        rollover,
+        splitPot,
+        creatorId: userId!,
+        creatorDisplayName: displayName,
+      });
+
+      if (!result.ok) {
+        Alert.alert('Failed to create game', result.error);
+        return;
+      }
+
+      router.push({
+        pathname: '/private/confirm',
+        params: {
+          gameName: result.data.name,
+          gamePin: result.data.pin,
+          fee: String(result.data.fee),
+          leagues: JSON.stringify(result.data.leagues),
+          rollover: String(result.data.rollover),
+          splitPot: String(result.data.splitPot),
+        },
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -56,17 +78,20 @@ export default function CreatePrivateGame() {
         keyboardShouldPersistTaps="handled"
       >
         <FormInput
+          label="Your Name"
+          value={displayName}
+          onChangeText={setDisplayName}
+          placeholder="What should other players call you?"
+          maxLength={32}
+        />
+
+        <FormInput
           label="Game Name"
           value={gameName}
           onChangeText={setGameName}
           placeholder="Enter game name..."
           maxLength={32}
         />
-
-        <View style={styles.pinContainer}>
-          <Text style={styles.pinLabel}>GAME PIN</Text>
-          <Text style={styles.pinValue}>{gamePin}</Text>
-        </View>
 
         <FeeStepper value={fee} onChange={setFee} />
 
@@ -87,9 +112,9 @@ export default function CreatePrivateGame() {
 
         <View style={styles.buttonContainer}>
           <PrimaryButton
-            label="Create Private Game"
+            label={loading ? 'Creating...' : 'Create Private Game'}
             onPress={handleCreate}
-            disabled={!isValid}
+            disabled={!isValid || loading}
           />
         </View>
       </ScrollView>
@@ -108,24 +133,6 @@ const styles = StyleSheet.create({
   content: {
     padding: Spacing.lg,
     paddingBottom: Spacing.xxl,
-  },
-  pinContainer: {
-    marginBottom: Spacing.lg,
-  },
-  pinLabel: {
-    fontSize: FontSize.sm,
-    fontWeight: '600',
-    color: Colors.textSecondary,
-    marginBottom: Spacing.sm,
-    textTransform: 'uppercase',
-    letterSpacing: 1,
-  },
-  pinValue: {
-    fontSize: FontSize.xl,
-    fontWeight: '700',
-    color: Colors.primary,
-    letterSpacing: 4,
-    fontFamily: 'SpaceMono',
   },
   checkboxRow: {
     flexDirection: 'row',

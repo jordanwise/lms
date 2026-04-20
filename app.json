@@ -32,7 +32,13 @@
     },
     "plugins": [
       "expo-router",
-      ["expo-dev-client", { "launchModeExperimental": "most-recent" }]
+      [
+        "expo-dev-client",
+        {
+          "launchModeExperimental": "most-recent"
+        }
+      ],
+      "expo-secure-store"
     ],
     "developmentClient": {
       "silentLaunch": true

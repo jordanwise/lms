@@ -159,6 +159,7 @@ export interface CreateGameRequest {
   rollover: boolean;
   splitPot: boolean;
   creatorId: string;
+  displayName: string;
 }
 
 export interface JoinGameRequest {

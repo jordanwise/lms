@@ -1,7 +1,6 @@
 import { View, Text, ScrollView, Alert, StyleSheet, Pressable } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { Colors, Spacing, FontSize, BorderRadius } from '@/constants/theme';
 
 type ShareMethod = 'WhatsApp' | 'Text' | 'Messenger';
@@ -77,13 +76,7 @@ export default function ConfirmPrivateGame() {
         <ShareButton method="Messenger" icon="paper-plane-outline" />
       </View>
 
-      {/* Home button */}
-      <View style={styles.homeButton}>
-        <PrimaryButton
-          label="Back to Home"
-          onPress={() => router.dismissAll()}
-        />
-      </View>
+
     </ScrollView>
   );
 }
@@ -167,7 +160,5 @@ const styles = StyleSheet.create({
     fontSize: FontSize.md,
     color: Colors.text,
   },
-  homeButton: {
-    marginTop: Spacing.md,
-  },
+
 });
