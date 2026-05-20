@@ -7,7 +7,7 @@ import { Checkbox } from '@/components/ui/Checkbox';
 import { LeagueSelector } from '@/components/ui/LeagueSelector';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { Colors, Spacing, FontSize } from '@/constants/theme';
-import { getOrCreateUserId } from '@/lib/userId';
+import { getOrCreateUserId, getDisplayName } from '@/lib/userId';
 import { createGame } from '@/lib/api';
 
 export default function CreatePrivateGame() {
@@ -17,12 +17,15 @@ export default function CreatePrivateGame() {
   const [gameName, setGameName] = useState('');
   const [fee, setFee] = useState(5);
   const [leagues, setLeagues] = useState<string[]>([]);
-  const [rollover, setRollover] = useState(false);
+  const [rollover, setRollover] = useState(true);
   const [splitPot, setSplitPot] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getOrCreateUserId().then(setUserId);
+    Promise.all([getOrCreateUserId(), getDisplayName()]).then(([id, name]) => {
+      setUserId(id);
+      setDisplayName(name);
+    });
   }, []);
 
   const isValid =
@@ -77,13 +80,7 @@ export default function CreatePrivateGame() {
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled"
       >
-        <FormInput
-          label="Your Name"
-          value={displayName}
-          onChangeText={setDisplayName}
-          placeholder="What should other players call you?"
-          maxLength={32}
-        />
+        <Text style={styles.playerName}>Playing as: <Text style={styles.playerNameBold}>{displayName}</Text></Text>
 
         <FormInput
           label="Game Name"
@@ -101,12 +98,12 @@ export default function CreatePrivateGame() {
           <Checkbox
             checked={rollover}
             label="Rollover"
-            onToggle={() => setRollover(!rollover)}
+            onToggle={() => { setRollover(true); setSplitPot(false); }}
           />
           <Checkbox
             checked={splitPot}
             label="Split Pot"
-            onToggle={() => setSplitPot(!splitPot)}
+            onToggle={() => { setSplitPot(true); setRollover(false); }}
           />
         </View>
 
@@ -140,5 +137,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: Spacing.md,
+  },
+  playerName: {
+    fontSize: FontSize.sm,
+    color: Colors.textMuted,
+    marginBottom: Spacing.lg,
+  },
+  playerNameBold: {
+    fontWeight: '700',
+    color: Colors.text,
   },
 });

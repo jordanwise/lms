@@ -3,7 +3,7 @@ import { View, Text, ScrollView, StyleSheet, Pressable, ActivityIndicator } from
 import { useRouter, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, FontSize, BorderRadius } from '@/constants/theme';
-import { getOrCreateUserId } from '@/lib/userId';
+import { getOrCreateUserId, getDisplayName } from '@/lib/userId';
 import { listUserGames, type UserGame } from '@/lib/api';
 
 type NavRowProps = {
@@ -31,11 +31,13 @@ const STATUS_LABEL: Record<string, string> = {
   completed: 'Completed',
   rollover_pending: 'Rollover pending',
   cancelled: 'Cancelled',
+  abandoned: 'Abandoned',
 };
 
 export default function AccountScreen() {
   const router = useRouter();
   const [games, setGames] = useState<UserGame[]>([]);
+  const [displayName, setDisplayName] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,7 +48,10 @@ export default function AccountScreen() {
       setError(null);
 
       getOrCreateUserId()
-        .then(userId => listUserGames(userId))
+        .then(userId => {
+          getDisplayName().then(setDisplayName);
+          return listUserGames(userId);
+        })
         .then(result => {
           if (!active) return;
           if (result.ok) {
@@ -63,6 +68,12 @@ export default function AccountScreen() {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      {/* Player header */}
+      <View style={styles.playerHeader}>
+        <Ionicons name="person-circle-outline" size={48} color={Colors.primary} />
+        <Text style={styles.playerName}>{displayName || '…'}</Text>
+      </View>
+
       {/* Current games */}
       <Text style={styles.sectionTitle}>Current Games</Text>
 
@@ -81,7 +92,11 @@ export default function AccountScreen() {
         </View>
       ) : (
         games.map(game => (
-          <View key={game.gameId} style={styles.gameCard}>
+          <Pressable
+            key={game.gameId}
+            style={({ pressed }) => [styles.gameCard, pressed && { opacity: 0.7 }]}
+            onPress={() => router.push(`/game/${game.gameId}`)}
+          >
             <View>
               <Text style={styles.gameName}>{game.gameName}</Text>
               <Text style={styles.gameStatus}>
@@ -91,7 +106,7 @@ export default function AccountScreen() {
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
-          </View>
+          </Pressable>
         ))
       )}
 
@@ -129,6 +144,17 @@ const styles = StyleSheet.create({
   content: {
     padding: Spacing.lg,
     paddingBottom: Spacing.xxl,
+  },
+  playerHeader: {
+    alignItems: 'center',
+    paddingVertical: Spacing.lg,
+    gap: Spacing.sm,
+    marginBottom: Spacing.sm,
+  },
+  playerName: {
+    fontSize: FontSize.xl,
+    fontWeight: '700',
+    color: Colors.text,
   },
   sectionTitle: {
     fontSize: FontSize.lg,
