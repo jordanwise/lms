@@ -83,6 +83,7 @@ function RootLayoutNav() {
       <Stack.Screen name="account/history" options={{ title: 'Game History' }} />
       <Stack.Screen name="account/statistics" options={{ title: 'Player Statistics' }} />
       <Stack.Screen name="account/settings" options={{ title: 'Account Settings' }} />
+      <Stack.Screen name="game/[gameId]" options={{ title: 'Game Details' }} />
     </Stack>
   );
 }
