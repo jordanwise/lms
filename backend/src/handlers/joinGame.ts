@@ -17,7 +17,8 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
     const game = await getItem(Keys.gameMeta(gameId)) as GameMetaItem | undefined;
     if (!game) return notFound('Game not found');
 
-    if (game.state !== 'waiting_for_players') {
+    const joiningAbandoned = game.state === 'abandoned';
+    if (game.state !== 'waiting_for_players' && !joiningAbandoned) {
       return conflict(`Cannot join game in state: ${game.state}`);
     }
 
@@ -34,9 +35,20 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
       status: 'alive',
       paidFee: true,
       gameName: game.name,
-      gameState: game.state,
+      gameState: 'waiting_for_players',
       joinedAt: now,
     };
+
+    const gameUpdateExpression = joiningAbandoned
+      ? 'SET playerCount = playerCount + :one, prizePool = prizePool + :fee, updatedAt = :now, #state = :waiting'
+      : 'SET playerCount = playerCount + :one, prizePool = prizePool + :fee, updatedAt = :now';
+
+    const gameExpressionValues: Record<string, any> = {
+      ':one': 1,
+      ':fee': game.fee,
+      ':now': now,
+    };
+    if (joiningAbandoned) gameExpressionValues[':waiting'] = 'waiting_for_players';
 
     await transactWrite({
       TransactItems: [
@@ -51,12 +63,9 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
           Update: {
             TableName: tableName(),
             Key: Keys.gameMeta(gameId),
-            UpdateExpression: 'SET playerCount = playerCount + :one, prizePool = prizePool + :fee, updatedAt = :now',
-            ExpressionAttributeValues: {
-              ':one': 1,
-              ':fee': game.fee,
-              ':now': now,
-            },
+            UpdateExpression: gameUpdateExpression,
+            ...(joiningAbandoned && { ExpressionAttributeNames: { '#state': 'state' } }),
+            ExpressionAttributeValues: gameExpressionValues,
           },
         },
       ],

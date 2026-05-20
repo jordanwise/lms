@@ -7,7 +7,8 @@ export type GameState =
   | 'active'
   | 'completed'
   | 'rollover_pending'
-  | 'cancelled';
+  | 'cancelled'
+  | 'abandoned';
 
 export type RoundState =
   | 'pending'
@@ -16,7 +17,7 @@ export type RoundState =
   | 'processing'
   | 'complete';
 
-export type PlayerStatus = 'alive' | 'eliminated' | 'deferred';
+export type PlayerStatus = 'alive' | 'eliminated' | 'deferred' | 'left';
 
 export type PickOutcome = 'win' | 'loss' | 'draw' | 'postponed';
 
@@ -99,6 +100,7 @@ export interface PlayerItem {
   gameName: string;
   gameState: GameState;
   joinedAt: string;
+  hidden?: boolean;
 }
 
 // ──────────────────────────────────────────────

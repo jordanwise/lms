@@ -14,13 +14,15 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
       ExpressionAttributeValues: { ':pk': `USER#${userId}` },
     }) as PlayerItem[];
 
-    const games = items.map((item) => ({
-      gameId: item.gameId,
-      gameName: item.gameName,
-      gameState: item.gameState,
-      playerStatus: item.status,
-      joinedAt: item.joinedAt,
-    }));
+    const games = items
+      .filter((item) => !item.hidden)
+      .map((item) => ({
+        gameId: item.gameId,
+        gameName: item.gameName,
+        gameState: item.gameState,
+        playerStatus: item.status,
+        joinedAt: item.joinedAt,
+      }));
 
     return success({ games });
   } catch (err) {

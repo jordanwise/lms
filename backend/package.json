@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "sam build",
+    "build": "PATH=\"$PATH:./node_modules/.bin\" sam build",
     "start": "./scripts/start-local.sh",
     "start:full": "./scripts/start-local.sh --full",
     "dev-server": "tsx scripts/dev-server.ts",
@@ -11,7 +11,7 @@
     "local:setup": "./scripts/setup-local.sh",
     "local:seed": "./scripts/seed-data.sh",
     "local:reset": "./scripts/reset-db.sh",
-    "local:api": "sam local start-api --docker-network lms-net --env-vars env.local.json --warm-containers EAGER",
+    "local:api": "PATH=\"$PATH:./node_modules/.bin\" sam local start-api --docker-network lms-net --env-vars env.local.json --skip-pull-image",
     "local:invoke": "sam local invoke --docker-network lms-net --env-vars env.local.json",
     "deploy": "sam deploy --guided"
   },
