@@ -11,11 +11,36 @@ Install these on a fresh machine:
 | Tool | Check | Install |
 |------|-------|---------|
 | Node.js 20+ | `node --version` | `brew install node` or [nodejs.org](https://nodejs.org) |
+| Ruby 3.3+ & CocoaPods | `ruby --version && pod --version` | See [Ruby & CocoaPods](#ruby--cocoapods) below |
 | Docker | `docker --version` | [Docker Desktop](https://docs.docker.com/get-docker/) |
-| AWS CLI | `aws --version` | `brew install awscli` |
+| AWS CLI v1 or v2 | `aws --version` | `brew install awscli` or `pip3 install --user awscli` |
 | AWS SAM CLI | `sam --version` | `brew install aws-sam-cli` |
 | Maestro (UI tests) | `maestro --version` | `curl -Ls "https://get.maestro.mobile.dev" \| bash` |
-| Xcode (iOS) | `xcodebuild -version` | App Store |
+| Xcode 16+ (iOS) | `xcodebuild -version` | App Store |
+
+### Ruby & CocoaPods
+
+macOS system Ruby (2.6) is too old for modern Xcode. Install a newer Ruby via rbenv:
+
+```bash
+# Install rbenv + ruby-build
+git clone --depth=1 https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone --depth=1 https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(rbenv init - zsh)"' >> ~/.zshrc
+source ~/.zshrc
+
+# Install libyaml (needed by Ruby's psych gem)
+curl -sL https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz | tar xz -C /tmp
+cd /tmp/yaml-0.2.5 && ./configure --prefix=$HOME/local && make -j10 && make install
+
+# Install Ruby 3.3+
+RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$HOME/local" rbenv install 3.3.7
+rbenv global 3.3.7
+
+# Install CocoaPods
+gem install cocoapods
+```
 
 ---
 
@@ -42,13 +67,23 @@ cd dev-tools && npm install && cd ..
 cd backend
 
 # Start localstack (Docker) — DynamoDB, EventBridge, SQS, SNS on port 4566
-docker compose up -d
+# Uses localstack/localstack:3.8 to avoid license requirements in latest
+docker run -d --name lms-localstack -p 4566:4566 \
+  -e SERVICES=dynamodb,events,lambda,apigateway,sqs,sns \
+  localstack/localstack:3.8
 
 # Wait for localstack to be ready, then create the LMS table + seed data
 npm run local:setup
 
 # Start SAM local API on port 3000
 npm run local:api
+```
+
+**Without Docker (lightweight dev server):**
+```bash
+cd backend
+npm run dev-server
+# Serves read-only seed data on :3000 — enough for frontend + dev tools testing.
 ```
 
 **Verification:**
@@ -73,12 +108,21 @@ Tests run against localstack — no external services needed.
 
 ## 4. Start Frontend (Expo)
 
+> **First time only:** Generate the native iOS project (requires CocoaPods):
+> ```bash
+> cd lms
+> npx expo prebuild --platform ios
+> ```
+> Skip this if `ios/` directory already exists.
+
+Then start the dev server:
+
 ```bash
 cd lms
 npx expo start
 ```
 
-Press `i` for iOS simulator.
+Press `i` for iOS simulator. The first build takes a few minutes; subsequent launches are instant.
 
 The app connects to `http://localhost:3000` automatically (configured in `constants/api.ts`).
 
@@ -108,19 +152,22 @@ Use the dev tools to inject game events while the iOS app is open to test reacti
 
 ## 6. Maestro UI Tests (iOS Simulator)
 
-Requires an iOS simulator running with the Expo dev client installed.
+Requires an iOS simulator running with the Expo dev client installed (see [Start Frontend](#4-start-frontend-expo) for the one-time build).
 
 ```bash
-# Build the Expo dev client for iOS (one-time)
-cd lms
-npx expo run:ios
-
-# In another terminal, start the backend
+# In terminal 1: Start the backend
 cd lms/backend
-docker compose up -d
+docker run -d --name lms-localstack -p 4566:4566 \
+  -e SERVICES=dynamodb,events,lambda,apigateway,sqs,sns \
+  localstack/localstack:3.8
 npm run local:setup && npm run local:api
 
-# Run Maestro tests
+# In terminal 2: Start Expo + install on simulator
+cd lms
+npx expo start
+# Press i for iOS
+
+# In terminal 3: Run Maestro tests
 cd lms/maestro
 ./run-tests.sh
 ```
@@ -138,14 +185,17 @@ npm run test:ui
 ```bash
 cd lms
 
-# Terminal 1: Backend (localstack + SAM API)
+# Terminal 1: Backend (localstack + dev server)
 cd backend
-docker compose up -d && npm run local:setup && cd .. && npm run dev:backend
+docker run -d --name lms-localstack -p 4566:4566 \
+  -e SERVICES=dynamodb,events,lambda,apigateway,sqs,sns \
+  localstack/localstack:3.8
+npm run dev-server &
 
 # Terminal 2: Dev tools
-cd dev-tools && npm run dev
+cd dev-tools && npx vite --port 5173 &
 
-# Terminal 3: Expo
+# Terminal 3: Expo (first time: npx expo prebuild --platform ios)
 npx expo start
 # Press i for iOS
 
