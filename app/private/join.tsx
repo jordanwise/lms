@@ -2,9 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, KeyboardAvoidingView,
   Platform, Alert, TextInput, Pressable, ActivityIndicator,
+  Modal,
 } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { CameraView, useCameraPermissions } from 'expo-camera';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { Colors, Spacing, FontSize, BorderRadius } from '@/constants/theme';
 import { getOrCreateUserId, getDisplayName } from '@/lib/userId';
@@ -30,13 +32,17 @@ function SummaryRow({ label, value }: { label: string; value: string }) {
 
 export default function JoinPrivateGame() {
   const router = useRouter();
+  const params = useLocalSearchParams<{ pin?: string }>();
   const [userId, setUserId] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState('');
   const [pin, setPin] = useState('');
   const [searching, setSearching] = useState(false);
   const [joining, setJoining] = useState(false);
   const [foundGame, setFoundGame] = useState<GameByPinResult | null>(null);
+  const [showScanner, setShowScanner] = useState(false);
+  const [permission, requestPermission] = useCameraPermissions();
   const inputRef = useRef<TextInput>(null);
+  const hasAutoFilled = useRef(false);
 
   useEffect(() => {
     Promise.all([getOrCreateUserId(), getDisplayName()]).then(([id, name]) => {
@@ -44,6 +50,29 @@ export default function JoinPrivateGame() {
       setDisplayName(name);
     });
   }, []);
+
+  // Auto-fill PIN from deep link param
+  useEffect(() => {
+    if (params.pin && !hasAutoFilled.current) {
+      hasAutoFilled.current = true;
+      const pinValue = params.pin.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+      setPin(pinValue);
+      // Auto-trigger search after a brief delay
+      if (pinValue.length >= 6) {
+        setTimeout(() => {
+          setSearching(true);
+          getGameByPin(pinValue).then(result => {
+            setSearching(false);
+            if (result.ok) {
+              setFoundGame(result.data);
+            } else {
+              Alert.alert('Not Found', result.error === 'Not Found' ? 'No game found with that PIN.' : result.error);
+            }
+          });
+        }, 300);
+      }
+    }
+  }, [params.pin]);
 
   const handlePinChange = (text: string) => {
     setPin(text.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8));
@@ -86,6 +115,52 @@ export default function JoinPrivateGame() {
 
   const canJoin = foundGame?.state === 'waiting_for_players' || foundGame?.state === 'abandoned';
 
+  const handleOpenScanner = async () => {
+    if (!permission?.granted) {
+      const result = await requestPermission();
+      if (!result.granted) {
+        Alert.alert('Permission needed', 'Camera permission is required to scan QR codes.');
+        return;
+      }
+    }
+    setShowScanner(true);
+  };
+
+  const handleBarcodeScanned = ({ data }: { data: string }) => {
+    setShowScanner(false);
+
+    // Try to extract PIN from lms://join/PIN URL
+    let extractedPin: string | null = null;
+
+    if (data.startsWith('lms://join/')) {
+      extractedPin = data.replace('lms://join/', '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+    } else if (data.startsWith('lastplayerstanding://join/')) {
+      extractedPin = data.replace('lastplayerstanding://join/', '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+    } else if (/^[A-Z0-9]{6,8}$/.test(data.trim())) {
+      // Maybe just a PIN was encoded
+      extractedPin = data.trim().toUpperCase();
+    }
+
+    if (extractedPin && extractedPin.length >= 6) {
+      setPin(extractedPin);
+      setFoundGame(null);
+      // Auto-trigger search
+      setTimeout(() => {
+        setSearching(true);
+        getGameByPin(extractedPin!).then(result => {
+          setSearching(false);
+          if (result.ok) {
+            setFoundGame(result.data);
+          } else {
+            Alert.alert('Not Found', 'No game found with that PIN.');
+          }
+        });
+      }, 200);
+    } else {
+      Alert.alert('Invalid QR Code', 'The scanned QR code does not contain a valid LMS game link.');
+    }
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.flex}
@@ -124,6 +199,11 @@ export default function JoinPrivateGame() {
             </Pressable>
           </View>
           <Text style={styles.hint}>Ask the game organiser for the PIN</Text>
+
+          <Pressable style={styles.scanButton} onPress={handleOpenScanner}>
+            <Ionicons name="qr-code-outline" size={20} color={Colors.primary} />
+            <Text style={styles.scanButtonText}>Scan QR Code</Text>
+          </Pressable>
         </View>
 
         {/* Game preview */}
@@ -172,6 +252,29 @@ export default function JoinPrivateGame() {
           </>
         )}
       </ScrollView>
+
+      {/* QR Scanner Modal */}
+      <Modal
+        visible={showScanner}
+        animationType="slide"
+        presentationStyle="fullScreen"
+        onRequestClose={() => setShowScanner(false)}
+      >
+        <View style={styles.scannerContainer}>
+          <CameraView
+            style={styles.camera}
+            barcodeScannerSettings={{ barcodeTypes: ['qr'] }}
+            onBarcodeScanned={handleBarcodeScanned}
+          />
+          <View style={styles.scannerOverlay}>
+            <View style={styles.scannerFrame} />
+          </View>
+          <Pressable style={styles.scannerClose} onPress={() => setShowScanner(false)}>
+            <Ionicons name="close-circle" size={48} color={Colors.text} />
+          </Pressable>
+          <Text style={styles.scannerHint}>Point camera at a QR code</Text>
+        </View>
+      </Modal>
     </KeyboardAvoidingView>
   );
 }
@@ -297,5 +400,59 @@ const styles = StyleSheet.create({
   playingAsName: {
     fontWeight: '700',
     color: Colors.text,
+  },
+  scanButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: Spacing.sm,
+    backgroundColor: Colors.surface,
+    borderRadius: BorderRadius.md,
+    borderWidth: 1,
+    borderColor: Colors.divider,
+    padding: Spacing.md,
+    marginTop: Spacing.md,
+  },
+  scanButtonText: {
+    fontSize: FontSize.md,
+    fontWeight: '600',
+    color: Colors.primary,
+  },
+  scannerContainer: {
+    flex: 1,
+    backgroundColor: Colors.background,
+  },
+  camera: {
+    flex: 1,
+  },
+  scannerOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  scannerFrame: {
+    width: 250,
+    height: 250,
+    borderWidth: 2,
+    borderColor: Colors.primary,
+    borderRadius: BorderRadius.md,
+    backgroundColor: 'transparent',
+  },
+  scannerClose: {
+    position: 'absolute',
+    top: 60,
+    left: Spacing.lg,
+  },
+  scannerHint: {
+    position: 'absolute',
+    bottom: 80,
+    alignSelf: 'center',
+    fontSize: FontSize.md,
+    color: Colors.textSecondary,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.sm,
+    borderRadius: BorderRadius.sm,
+    overflow: 'hidden',
   },
 });

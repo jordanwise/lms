@@ -119,6 +119,29 @@ Resources:
         Minify: true
         Target: es2020
       SamResourceId: UpdatePreferencesFunction
+  RegisterPushTokenFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: registerPushToken.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/push-token
+            Method: put
+      CodeUri: RegisterPushTokenFunction
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        EntryPoints:
+        - src/handlers/registerPushToken.ts
+        Minify: true
+        Target: es2020
+      SamResourceId: RegisterPushTokenFunction
   ListUserGamesFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -510,6 +533,77 @@ Resources:
         Minify: true
         Target: es2020
       SamResourceId: ListPlayersFunction
+  TickFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: tick.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: LMSTable
+      Events:
+        ScheduledTick:
+          Type: Schedule
+          Properties:
+            Schedule: rate(5 minutes)
+            Name: LMSTickSchedule
+            Description: Periodic tick to process locked rounds
+            Enabled: true
+      CodeUri: TickFunction
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        EntryPoints:
+        - src/handlers/tick.ts
+        Minify: true
+        Target: es2020
+      SamResourceId: TickFunction
+  ManualTickFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: manualTick.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /tick
+            Method: post
+      CodeUri: ManualTickFunction
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        EntryPoints:
+        - src/handlers/manualTick.ts
+        Minify: true
+        Target: es2020
+      SamResourceId: ManualTickFunction
+  SendNotificationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: sendNotification.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: LMSTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /notifications
+            Method: post
+      CodeUri: SendNotificationFunction
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        EntryPoints:
+        - src/handlers/sendNotification.ts
+        Minify: true
+        Target: es2020
+      SamResourceId: SendNotificationFunction
 Outputs:
   ApiUrl:
     Description: API Gateway endpoint URL

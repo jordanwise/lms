@@ -1,0 +1,8 @@
+appId: com.manning.lastplayerstanding
+
+ios:
+  device: "iPhone 17"
+
+timeouts:
+  waitForAnimation: 5000
+  waitForElement: 10000

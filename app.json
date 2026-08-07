@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "lastplayerstanding",
+    "scheme": "lms",
     "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/images/splash-icon.png",
@@ -14,7 +14,11 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.manning.lastplayerstanding"
+      "bundleIdentifier": "com.manning.lastplayerstanding",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSCameraUsageDescription": "Allow Last Player Standing to scan QR codes to join games."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -23,7 +27,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "package": "com.manning.lastplayerstanding"
+      "package": "com.manning.lastplayerstanding",
+      "permissions": ["android.permission.CAMERA"]
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +37,7 @@
     },
     "plugins": [
       "expo-router",
+      "expo-camera",
       [
         "expo-dev-client",
         {
@@ -44,6 +50,13 @@
     },
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "439bac60-f499-453c-8bde-9d395e4c1eb7"
+      }
+    },
+    "owner": "jordanwise"
   }
 }

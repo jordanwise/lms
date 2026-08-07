@@ -1,0 +1,43 @@
+appId: com.manning.lastplayerstanding
+---
+# Step 1: Create a game via API and capture the PIN
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+      RESULT=$(curl -s -X POST "$API/games" \
+        -H "Content-Type: application/json" \
+        -d '{"name":"Deep Link Test","fee":10,"leagues":["premier-league"],"rollover":false,"splitPot":false,"creatorId":"dl-creator","displayName":"DL Creator"}')
+      PIN=$(echo "$RESULT" | python3 -c "import sys,json;print(json.load(sys.stdin)['pin'])")
+      GID=$(echo "$RESULT" | python3 -c "import sys,json;print(json.load(sys.stdin)['gameId'])")
+      echo "$PIN" > /tmp/maestro_deeplink_pin.txt
+      echo "$GID" > /tmp/maestro_deeplink_gid.txt
+      echo "Created game $GID with PIN $PIN"
+
+# Step 2: Open the deep link URL
+- runScript:
+    command: bash
+    script: |
+      PIN=$(cat /tmp/maestro_deeplink_pin.txt)
+      xcrun simctl openurl booted "lms://join/$PIN"
+      sleep 2
+
+# Step 3: Verify app opened to join screen with PIN pre-filled
+- waitForAnimationToEnd: true
+- assertVisible: "Join Private Game"
+
+# Step 4: The PIN should already be filled in and search triggered
+# Verify the game preview appears
+- assertVisible: "Deep Link Test"
+
+# Step 5: Verify game details in preview card
+- assertVisible: "Entry Fee"
+- assertVisible: "£10"
+
+# Step 6: Join the game
+- tapOn: "Join Game"
+
+# Step 7: Verify navigated to game detail
+- waitForAnimationToEnd: true
+- assertVisible: "Deep Link Test"
+# Should show player count of 2 (creator + us)

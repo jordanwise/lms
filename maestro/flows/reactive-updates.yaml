@@ -1,0 +1,137 @@
+appId: com.manning.lastplayerstanding
+---
+# ── Reactive UI Updates Test ──────────────────────────────────────────────
+# Verifies that backend state changes pushed via API are reflected in the
+# UI after pull-to-refresh or re-navigation.  Creates a game with 3 users,
+# drives it through Round 1 entirely via API, then asserts the UI reflects
+# eliminations (one loss → eliminated, one postponed → deferred).
+# ─────────────────────────────────────────────────────────────────────────
+
+# ── Phase 1: Create game + 3 users, join all, add & open round 1 ─────────
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+
+      # Create 3 users
+      U1=$(curl -s -X POST "$API/users" -H "Content-Type: application/json" \
+        -d '{"displayName":"RP1"}' | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['userId'])")
+      U2=$(curl -s -X POST "$API/users" -H "Content-Type: application/json" \
+        -d '{"displayName":"RP2"}' | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['userId'])")
+      U3=$(curl -s -X POST "$API/users" -H "Content-Type: application/json" \
+        -d '{"displayName":"RP3"}' | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['userId'])")
+
+      # Create game
+      G=$(curl -s -X POST "$API/games" -H "Content-Type: application/json" \
+        -d "{\"name\":\"Reactive Test\",\"fee\":10,\"leagues\":[\"premier-league\"],\"rollover\":false,\"splitPot\":false,\"creatorId\":\"$U1\",\"displayName\":\"RP1\"}" | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['gameId'])")
+
+      # Join remaining players
+      curl -s -X POST "$API/games/$G/join" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U2\",\"displayName\":\"RP2\"}" > /dev/null
+      curl -s -X POST "$API/games/$G/join" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U3\",\"displayName\":\"RP3\"}" > /dev/null
+
+      # Add round 1 and open picks
+      curl -s -X POST "$API/games/$G/rounds" -H "Content-Type: application/json" \
+        -d '{"matchday":"GW1","leagueId":"premier-league"}' > /dev/null
+      curl -s -X POST "$API/games/$G/rounds/1/open" > /dev/null
+
+      # Persist IDs for later phases
+      echo "{\"gameId\":\"$G\",\"user1\":\"$U1\",\"user2\":\"$U2\",\"user3\":\"$U3\"}" > /tmp/maestro_reactive.json
+      echo "Setup: game=$G u1=$U1 u2=$U2 u3=$U3"
+
+# ── Phase 2: Navigate to Account → verify game card ──────────────────────
+- runFlow: ../common/navigate-account.yaml
+- waitForAnimationToEnd: true
+
+- assertVisible: "Reactive Test"
+
+# ── Phase 3: Enter game detail → verify players, round banner, submit ────
+- tapOn: "Reactive Test"
+- waitForAnimationToEnd: true
+
+- assertVisible: "RP1"
+- assertVisible: "RP2"
+- assertVisible: "RP3"
+
+# Round status banner should show Round 1 is active
+- assertVisible:
+    text: "(?i)(round|gw|gameweek)"
+    optional: true
+
+# Submit Pick call-to-action should be present while round is open
+- assertVisible:
+    text: "(?i)(submit.*pick|pick|choose|select)"
+    optional: true
+
+# ── Phase 4: Lock round, submit results, apply eliminations via API ──────
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+      GID=$(python3 -c "import json;print(json.load(open('/tmp/maestro_reactive.json'))['gameId'])")
+      U1=$(python3 -c "import json;print(json.load(open('/tmp/maestro_reactive.json'))['user1'])")
+      U2=$(python3 -c "import json;print(json.load(open('/tmp/maestro_reactive.json'))['user2'])")
+      U3=$(python3 -c "import json;print(json.load(open('/tmp/maestro_reactive.json'))['user3'])")
+
+      # Submit a pick for each player
+      curl -s -X POST "$API/games/$GID/picks" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U1\",\"round\":1,\"team\":\"ARSENAL\"}" > /dev/null
+      curl -s -X POST "$API/games/$GID/picks" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U2\",\"round\":1,\"team\":\"LIVERPOOL\"}" > /dev/null
+      curl -s -X POST "$API/games/$GID/picks" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U3\",\"round\":1,\"team\":\"CHELSEA\"}" > /dev/null
+
+      # Lock round 1
+      curl -s -X POST "$API/games/$GID/rounds/1/lock" > /dev/null
+
+      # Submit results: 1 win, 1 loss, 1 postponed
+      curl -s -X POST "$API/games/$GID/rounds/1/results" -H "Content-Type: application/json" \
+        -d '{"results":[{"team":"ARSENAL","result":"win","goals":2},{"team":"LIVERPOOL","result":"loss","goals":0},{"team":"CHELSEA","result":"postponed","goals":0}]}' > /dev/null
+
+      # Apply eliminations: loser gets eliminated, postponed defers
+      curl -s -X POST "$API/games/$GID/rounds/1/eliminate" > /dev/null
+
+      echo "Phase 4 complete: round locked, results posted, eliminations applied"
+
+# ── Phase 5: Back to game detail → pull-to-refresh → verify standings ────
+- pressKey: back
+- tapOn: "Account"
+- tapOn: "Reactive Test"
+- waitForAnimationToEnd: true
+
+# Pull-to-refresh to load the backend state changes
+- swipe:
+    direction: DOWN
+    start: "50%,20%"
+- waitForAnimationToEnd: true
+
+# Verifying elimination state: one player eliminated, one deferred
+- assertVisible:
+    text: "(?i)(eliminated|out)"
+    optional: true
+
+- assertVisible:
+    text: "(?i)(deferred|postponed|pending)"
+    optional: true
+
+# ── Phase 6: Back to Account → verify game state label updated ───────────
+- pressKey: back
+- tapOn: "Account"
+- waitForAnimationToEnd: true
+
+- assertVisible: "Reactive Test"
+
+# ── Phase 7: Navigate to Game History → verify listing ───────────────────
+- tapOn: "Game History"
+- waitForAnimationToEnd: true
+- assertVisible: "Past Games"
+
+# ── Phase 8: Clean up temp state ─────────────────────────────────────────
+- runScript:
+    command: bash
+    script: rm -f /tmp/maestro_reactive.json

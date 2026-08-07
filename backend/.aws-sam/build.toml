@@ -21,6 +21,10 @@ EntryPoints = ["src/handlers/createUser.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.4a71f799-ea53-4481-bfcf-7f944cb58054]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -37,6 +41,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/getUser.ts"]
+
+
+
+
 
 
 
@@ -63,6 +71,10 @@ EntryPoints = ["src/handlers/updatePreferences.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.45165b45-cd03-4a82-8497-44b60f694d7a]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -79,6 +91,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/listUserGames.ts"]
+
+
+
+
 
 
 
@@ -105,6 +121,10 @@ EntryPoints = ["src/handlers/createGame.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.1ca352d7-8210-436d-a23f-3cdbdfe21d6c]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -121,6 +141,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/getGame.ts"]
+
+
+
+
 
 
 
@@ -147,6 +171,10 @@ EntryPoints = ["src/handlers/getGameByPin.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.2fe2dce1-18aa-4262-a720-ae6eafccd627]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -163,6 +191,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/shareGame.ts"]
+
+
+
+
 
 
 
@@ -189,6 +221,10 @@ EntryPoints = ["src/handlers/joinGame.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.db5d8378-55f7-4a90-9e9c-c74b1dfe0cfe]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -205,6 +241,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/addRound.ts"]
+
+
+
+
 
 
 
@@ -231,6 +271,10 @@ EntryPoints = ["src/handlers/openPicks.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.59e7c464-b37a-456d-9fc2-5dcac949a66b]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -247,6 +291,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/submitPick.ts"]
+
+
+
+
 
 
 
@@ -273,6 +321,10 @@ EntryPoints = ["src/handlers/lockRound.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.30ddc35f-9c21-4c57-883f-b21a344e3753]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -289,6 +341,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/submitResults.ts"]
+
+
+
+
 
 
 
@@ -315,6 +371,10 @@ EntryPoints = ["src/handlers/applyEliminations.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.184a434c-d3a9-48a2-a300-8707ba899236]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -331,6 +391,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/cancelGame.ts"]
+
+
+
+
 
 
 
@@ -357,6 +421,10 @@ EntryPoints = ["src/handlers/listPlayers.ts"]
 
 
 
+
+
+
+
 [function_build_definitions.a3b03733-57ab-4a9b-8f17-d55329568e79]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -373,6 +441,10 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/leaveGame.ts"]
+
+
+
+
 
 
 [function_build_definitions.2e795317-a4de-4f74-90ba-53f932cd0cd6]
@@ -393,6 +465,10 @@ Target = "es2020"
 EntryPoints = ["src/handlers/restartGame.ts"]
 
 
+
+
+
+
 [function_build_definitions.ff5be81d-4ef8-4d0d-87bf-f35ea0dd1547]
 codeuri = "/Users/jordanwise/code/manning/lms/backend"
 runtime = "nodejs20.x"
@@ -409,6 +485,87 @@ BuildMethod = "esbuild"
 Minify = true
 Target = "es2020"
 EntryPoints = ["src/handlers/hideGame.ts"]
+
+
+
+
+
+
+[function_build_definitions.67ece7c9-2805-414a-a1e3-de5f9d4bed9d]
+codeuri = "/Users/jordanwise/code/manning/lms/backend"
+runtime = "nodejs20.x"
+architecture = "x86_64"
+handler = "dist/handlers/tick.handler"
+manifest_hash = ""
+packagetype = "Zip"
+functions = ["TickFunction"]
+
+[function_build_definitions.67ece7c9-2805-414a-a1e3-de5f9d4bed9d.metadata]
+BuildMethod = "esbuild"
+
+[function_build_definitions.67ece7c9-2805-414a-a1e3-de5f9d4bed9d.metadata.BuildProperties]
+Minify = true
+Target = "es2020"
+EntryPoints = ["src/handlers/tick.ts"]
+
+
+
+
+[function_build_definitions.752a11ce-0cdf-4cea-b069-d1fc7f49199f]
+codeuri = "/Users/jordanwise/code/manning/lms/backend"
+runtime = "nodejs20.x"
+architecture = "x86_64"
+handler = "dist/handlers/registerPushToken.handler"
+manifest_hash = ""
+packagetype = "Zip"
+functions = ["RegisterPushTokenFunction"]
+
+[function_build_definitions.752a11ce-0cdf-4cea-b069-d1fc7f49199f.metadata]
+BuildMethod = "esbuild"
+
+[function_build_definitions.752a11ce-0cdf-4cea-b069-d1fc7f49199f.metadata.BuildProperties]
+Minify = true
+Target = "es2020"
+EntryPoints = ["src/handlers/registerPushToken.ts"]
+
+
+
+[function_build_definitions.1426b5e7-acb5-4739-b334-02808a87a6af]
+codeuri = "/Users/jordanwise/code/manning/lms/backend"
+runtime = "nodejs20.x"
+architecture = "x86_64"
+handler = "dist/handlers/manualTick.handler"
+manifest_hash = ""
+packagetype = "Zip"
+functions = ["ManualTickFunction"]
+
+[function_build_definitions.1426b5e7-acb5-4739-b334-02808a87a6af.metadata]
+BuildMethod = "esbuild"
+
+[function_build_definitions.1426b5e7-acb5-4739-b334-02808a87a6af.metadata.BuildProperties]
+Minify = true
+Target = "es2020"
+EntryPoints = ["src/handlers/manualTick.ts"]
+
+
+
+[function_build_definitions.cb3e81fe-6ed5-4823-ba02-389a7ded0767]
+codeuri = "/Users/jordanwise/code/manning/lms/backend"
+runtime = "nodejs20.x"
+architecture = "x86_64"
+handler = "dist/handlers/sendNotification.handler"
+manifest_hash = ""
+packagetype = "Zip"
+functions = ["SendNotificationFunction"]
+
+[function_build_definitions.cb3e81fe-6ed5-4823-ba02-389a7ded0767.metadata]
+BuildMethod = "esbuild"
+
+[function_build_definitions.cb3e81fe-6ed5-4823-ba02-389a7ded0767.metadata.BuildProperties]
+Minify = true
+Target = "es2020"
+EntryPoints = ["src/handlers/sendNotification.ts"]
+
 
 
 [layer_build_definitions]

@@ -24,31 +24,31 @@ echo "╚═══════════════════════�
 echo ""
 
 if [[ "${1:-}" == "--full" ]]; then
-  # ─── Full stack: Docker + DynamoDB + SAM + Dojo ───
-  echo "🐳 Starting full stack (Docker + DynamoDB + SAM)..."
+  # ─── Full stack: Docker + localstack + SAM + Dojo ───
+  echo "🐳 Starting full stack (Docker + localstack + SAM)..."
   echo ""
 
-  echo "🐳 [1/4] Starting DynamoDB Local..."
+  echo "🐳 [1/4] Starting localstack..."
   cd "$BACKEND_DIR"
   docker-compose up -d
 
-  echo "   Waiting for DynamoDB Local to be ready..."
-  for i in $(seq 1 30); do
-    if aws dynamodb list-tables --endpoint-url http://localhost:8000 --region local --no-cli-pager 2>/dev/null | grep -q "TableNames"; then
+  echo "   Waiting for localstack to be ready..."
+  for i in $(seq 1 60); do
+    if aws dynamodb list-tables --endpoint-url http://localhost:4566 --region local --no-cli-pager 2>/dev/null | grep -q "TableNames"; then
       break
     fi
-    if [ "$i" -eq 30 ]; then
-      echo "   ❌ DynamoDB Local failed to start after 30s"
+    if [ "$i" -eq 60 ]; then
+      echo "   ❌ localstack failed to start after 60s"
       exit 1
     fi
     sleep 1
   done
-  echo "   ✅ DynamoDB Local running on http://localhost:8000"
+  echo "   ✅ localstack running on http://localhost:4566"
 
   echo ""
   echo "📦 [2/4] Setting up database..."
   aws dynamodb create-table \
-    --endpoint-url http://localhost:8000 \
+    --endpoint-url http://localhost:4566 \
     --region local \
     --table-name LMS \
     --attribute-definitions \
@@ -108,9 +108,9 @@ if [[ "${1:-}" == "--full" ]]; then
   echo "╔══════════════════════════════════════════╗"
   echo "║   ✅ All services running! (full stack)   ║"
   echo "║                                          ║"
-  echo "║   DynamoDB Local : http://localhost:8000  ║"
-  echo "║   SAM API        : http://localhost:3000  ║"
-  echo "║   Dojo           : http://localhost:5173  ║"
+  echo "║   localstack      : http://localhost:4566 ║"
+  echo "║   SAM API         : http://localhost:3000 ║"
+  echo "║   Dojo            : http://localhost:5173 ║"
   echo "║                                          ║"
   echo "║   Press Ctrl+C to stop all services       ║"
   echo "╚══════════════════════════════════════════╝"
@@ -121,7 +121,7 @@ fi
 
 # ─── Default: Lightweight dev-server + dojo (no Docker required) ───
 echo "⚡ Lightweight mode (no Docker required)"
-echo "   Use --full for Docker + DynamoDB + SAM stack"
+echo "   Use --full for Docker + localstack + SAM stack"
 echo ""
 
 echo "🚀 [1/2] Starting API dev server..."

@@ -6,17 +6,17 @@ BACKEND_DIR="$(dirname "$SCRIPT_DIR")"
 
 cd "$BACKEND_DIR"
 
-echo "🐳 Starting DynamoDB Local..."
+echo "🐳 Starting localstack..."
 docker-compose up -d
 
-echo "⏳ Waiting for DynamoDB Local to be ready..."
-until aws dynamodb list-tables --endpoint-url http://localhost:8000 --region local --no-cli-pager 2>/dev/null; do
+echo "⏳ Waiting for localstack to be ready..."
+until aws dynamodb list-tables --endpoint-url http://localhost:4566 --region local --no-cli-pager 2>/dev/null; do
   sleep 1
 done
 
 echo "📦 Creating LMS table..."
 aws dynamodb create-table \
-  --endpoint-url http://localhost:8000 \
+  --endpoint-url http://localhost:4566 \
   --region local \
   --table-name LMS \
   --attribute-definitions \
@@ -49,7 +49,7 @@ echo "🌱 Seeding sample data..."
 
 echo ""
 echo "✅ Local setup complete!"
-echo "   DynamoDB Local: http://localhost:8000"
+echo "   localstack: http://localhost:4566"
 echo ""
 echo "   Next steps:"
 echo "   npm run local:api    # Start SAM local API"

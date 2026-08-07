@@ -1,12 +1,27 @@
 import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
+import * as Linking from 'expo-linking';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import * as Notifications from 'expo-notifications';
+import { useEffect, useCallback } from 'react';
 import { Pressable, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/theme';
+import { getOrCreateUserId } from '@/lib/userId';
+import { registerPushTokenWithBackend } from '@/lib/notifications';
 
 export { ErrorBoundary } from 'expo-router';
+
+// Configure notification handler for foreground notifications
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldShowBanner: true,
+    shouldShowList: true,
+    shouldSetBadge: false,
+  }),
+});
 
 SplashScreen.preventAutoHideAsync();
 
@@ -55,6 +70,67 @@ function RulesHeaderButton() {
 }
 
 function RootLayoutNav() {
+  const router = useRouter();
+
+  const handleDeepLink = useCallback((event: Linking.EventType) => {
+    const { url } = event;
+    if (!url) return;
+
+    // Parse lms://join/PIN or lastplayerstanding://join/PIN
+    const parsed = Linking.parse(url);
+    const { path, queryParams } = parsed;
+
+    if (path === 'join' && queryParams) {
+      // URL format: lms://join?pin=XXXX or path-based
+      const pin = typeof queryParams === 'object' && 'pin' in queryParams
+        ? (queryParams as Record<string, string>).pin
+        : null;
+      if (pin) {
+        router.push(`/private/join?pin=${pin}`);
+        return;
+      }
+    }
+
+    // Also handle path-based: lms://join/PIN
+    if (path && path.startsWith('join/')) {
+      const pin = path.replace('join/', '');
+      if (pin) {
+        router.push(`/private/join?pin=${pin}`);
+      }
+    }
+  }, [router]);
+
+  useEffect(() => {
+    // Handle initial URL that launched the app
+    Linking.getInitialURL().then(url => {
+      if (url) {
+        handleDeepLink({ url });
+      }
+    });
+
+    // Listen for incoming links while app is running
+    const subscription = Linking.addEventListener('url', handleDeepLink);
+    return () => subscription.remove();
+  }, [handleDeepLink]);
+
+  // Register push token with backend on startup
+  useEffect(() => {
+    getOrCreateUserId().then(userId => {
+      registerPushTokenWithBackend(userId);
+    });
+  }, []);
+
+  // Listen for notification taps and navigate to the relevant game
+  useEffect(() => {
+    const subscription = Notifications.addNotificationResponseReceivedListener(response => {
+      const gameId = response.notification.request.content.data?.gameId;
+      if (gameId && typeof gameId === 'string') {
+        router.push(`/game/${gameId}`);
+      }
+    });
+    return () => subscription.remove();
+  }, [router]);
+
   return (
     <Stack
       screenOptions={{
@@ -84,6 +160,9 @@ function RootLayoutNav() {
       <Stack.Screen name="account/statistics" options={{ title: 'Player Statistics' }} />
       <Stack.Screen name="account/settings" options={{ title: 'Account Settings' }} />
       <Stack.Screen name="game/[gameId]" options={{ title: 'Game Details' }} />
+      <Stack.Screen name="game/[gameId]/rounds" options={{ title: 'Manage Rounds' }} />
+      <Stack.Screen name="game/[gameId]/pick" options={{ title: 'Submit Pick' }} />
+      <Stack.Screen name="game/[gameId]/results" options={{ title: 'Round Results' }} />
     </Stack>
   );
 }

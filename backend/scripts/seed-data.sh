@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ENDPOINT="http://localhost:8000"
+ENDPOINT="http://localhost:4566"
 REGION="local"
 TABLE="LMS"
 
@@ -315,3 +315,116 @@ put '{
 }'
 
 echo "✅ Seed data loaded: 6 users, 1 game, 6 players, 3 rounds, 15 picks, 1 deferred"
+
+# ─── Mock Fixtures for GW28-GW31 ───
+echo "🌱 Seeding mock fixtures..."
+
+# GW28 fixtures (used in round 1)
+put '{"PK":{"S":"FIXTURES#premier-league#GW28"},"SK":{"S":"TEAM#arsenal"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW28"},"teamId":{"S":"arsenal"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW28"},"SK":{"S":"TEAM#man-city"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW28"},"teamId":{"S":"man-city"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW28"},"SK":{"S":"TEAM#liverpool"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW28"},"teamId":{"S":"liverpool"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW28"},"SK":{"S":"TEAM#chelsea"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW28"},"teamId":{"S":"chelsea"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW28"},"SK":{"S":"TEAM#west-ham"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW28"},"teamId":{"S":"west-ham"},"result":{"S":"loss"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW28"},"SK":{"S":"TEAM#tottenham"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW28"},"teamId":{"S":"tottenham"},"result":{"S":"win"}}'
+
+# GW29 fixtures (used in round 2)
+put '{"PK":{"S":"FIXTURES#premier-league#GW29"},"SK":{"S":"TEAM#man-city"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW29"},"teamId":{"S":"man-city"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW29"},"SK":{"S":"TEAM#arsenal"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW29"},"teamId":{"S":"arsenal"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW29"},"SK":{"S":"TEAM#man-utd"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW29"},"teamId":{"S":"man-utd"},"result":{"S":"draw"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW29"},"SK":{"S":"TEAM#newcastle"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW29"},"teamId":{"S":"newcastle"},"result":{"S":"win"}}'
+
+# GW30 fixtures (used in round 3)
+put '{"PK":{"S":"FIXTURES#premier-league#GW30"},"SK":{"S":"TEAM#liverpool"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW30"},"teamId":{"S":"liverpool"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW30"},"SK":{"S":"TEAM#chelsea"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW30"},"teamId":{"S":"chelsea"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW30"},"SK":{"S":"TEAM#tottenham"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW30"},"teamId":{"S":"tottenham"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW30"},"SK":{"S":"TEAM#brighton"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW30"},"teamId":{"S":"brighton"},"result":{"S":"postponed"}}'
+
+# GW31 fixtures — next round after the seeded GW28-30
+# Generate all 20 teams with deterministic outcomes
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#arsenal"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"arsenal"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#aston-villa"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"aston-villa"},"result":{"S":"loss"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#bournemouth"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"bournemouth"},"result":{"S":"draw"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#brentford"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"brentford"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#brighton"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"brighton"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#chelsea"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"chelsea"},"result":{"S":"loss"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#crystal-palace"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"crystal-palace"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#everton"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"everton"},"result":{"S":"draw"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#fulham"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"fulham"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#ipswich"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"ipswich"},"result":{"S":"loss"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#leicester"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"leicester"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#liverpool"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"liverpool"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#man-city"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"man-city"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#man-utd"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"man-utd"},"result":{"S":"loss"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#newcastle"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"newcastle"},"result":{"S":"draw"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#nottingham-forest"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"nottingham-forest"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#southampton"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"southampton"},"result":{"S":"loss"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#tottenham"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"tottenham"},"result":{"S":"win"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#west-ham"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"west-ham"},"result":{"S":"loss"}}'
+put '{"PK":{"S":"FIXTURES#premier-league#GW31"},"SK":{"S":"TEAM#wolves"},"leagueId":{"S":"premier-league"},"matchday":{"S":"GW31"},"teamId":{"S":"wolves"},"result":{"S":"draw"}}'
+
+# ─── Second game in locked state (for tick testing) ───
+echo "🌱 Seeding test game (locked round for tick processing)..."
+
+put '{
+  "PK":{"S":"GAME#game-002"},
+  "SK":{"S":"META"},
+  "GSI1PK":{"S":"PIN#XYZ98765"},
+  "gameId":{"S":"game-002"},
+  "name":{"S":"Tick Test Game"},
+  "pin":{"S":"XYZ98765"},
+  "fee":{"N":"5"},
+  "leagues":{"L":[{"S":"premier-league"}]},
+  "rollover":{"BOOL":true},
+  "splitPot":{"BOOL":false},
+  "state":{"S":"active"},
+  "roundState":{"S":"locked"},
+  "currentRound":{"N":"1"},
+  "creatorId":{"S":"user-alice"},
+  "prizePool":{"N":"15"},
+  "playerCount":{"N":"3"},
+  "version":{"N":"5"},
+  "createdAt":{"S":"2026-04-01T10:00:00Z"},
+  "updatedAt":{"S":"2026-04-05T12:00:00Z"}
+}'
+
+# Players for game-002
+put '{
+  "PK":{"S":"GAME#game-002"},"SK":{"S":"PLAYER#user-alice"},
+  "GSI2PK":{"S":"USER#user-alice"},"GSI2SK":{"S":"GAME#game-002"},
+  "gameId":{"S":"game-002"},"userId":{"S":"user-alice"},"displayName":{"S":"Alice"},
+  "status":{"S":"alive"},"paidFee":{"BOOL":true},
+  "gameName":{"S":"Tick Test Game"},"gameState":{"S":"active"},
+  "joinedAt":{"S":"2026-04-01T10:00:00Z"}
+}'
+put '{
+  "PK":{"S":"GAME#game-002"},"SK":{"S":"PLAYER#user-bob"},
+  "GSI2PK":{"S":"USER#user-bob"},"GSI2SK":{"S":"GAME#game-002"},
+  "gameId":{"S":"game-002"},"userId":{"S":"user-bob"},"displayName":{"S":"Bob"},
+  "status":{"S":"alive"},"paidFee":{"BOOL":true},
+  "gameName":{"S":"Tick Test Game"},"gameState":{"S":"active"},
+  "joinedAt":{"S":"2026-04-01T11:00:00Z"}
+}'
+put '{
+  "PK":{"S":"GAME#game-002"},"SK":{"S":"PLAYER#user-charlie"},
+  "GSI2PK":{"S":"USER#user-charlie"},"GSI2SK":{"S":"GAME#game-002"},
+  "gameId":{"S":"game-002"},"userId":{"S":"user-charlie"},"displayName":{"S":"Charlie"},
+  "status":{"S":"alive"},"paidFee":{"BOOL":true},
+  "gameName":{"S":"Tick Test Game"},"gameState":{"S":"active"},
+  "joinedAt":{"S":"2026-04-01T12:00:00Z"}
+}'
+
+# Round 1 (locked) for game-002
+put '{
+  "PK":{"S":"GAME#game-002"},"SK":{"S":"ROUND#0001"},
+  "gameId":{"S":"game-002"},"roundNum":{"N":"1"},
+  "state":{"S":"locked"},"matchday":{"S":"GW31"},"leagueId":{"S":"premier-league"},
+  "deadline":{"S":"2026-04-06T12:30:00Z"},"createdAt":{"S":"2026-04-05T10:00:00Z"}
+}'
+
+# Picks for game-002 round 1
+put '{"PK":{"S":"GAME#game-002"},"SK":{"S":"PICK#0001#user-alice"},"gameId":{"S":"game-002"},"roundNum":{"N":"1"},"userId":{"S":"user-alice"},"teamId":{"S":"arsenal"},"teamName":{"S":"Arsenal"},"pickedAt":{"S":"2026-04-05T20:00:00Z"}}'
+put '{"PK":{"S":"GAME#game-002"},"SK":{"S":"PICK#0001#user-bob"},"gameId":{"S":"game-002"},"roundNum":{"N":"1"},"userId":{"S":"user-bob"},"teamId":{"S":"chelsea"},"teamName":{"S":"Chelsea"},"pickedAt":{"S":"2026-04-05T21:00:00Z"}}'
+put '{"PK":{"S":"GAME#game-002"},"SK":{"S":"PICK#0001#user-charlie"},"gameId":{"S":"game-002"},"roundNum":{"N":"1"},"userId":{"S":"user-charlie"},"teamId":{"S":"man-city"},"teamName":{"S":"Manchester City"},"pickedAt":{"S":"2026-04-05T22:00:00Z"}}'
+
+echo "✅ Fixtures seeded: GW28-31 (4 matchdays, 40 fixture entries)"
+echo "✅ Test game seeded: game-002 (locked round, 3 players, 3 picks ready for tick)"

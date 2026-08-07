@@ -1,0 +1,303 @@
+appId: com.manning.lastplayerstanding
+---
+# ── Full Game Cycle Test ──────────────────────────────────────────────────
+# End‑to‑end lifecycle: create game (UI) → join players (API) → two full
+# rounds of picks, results, and eliminations until a winner is crowned.
+# Every major screen and transition is exercised: Create, Confirm, Game
+# Detail, Rounds management, Pick, and game‑completion banner.
+# ─────────────────────────────────────────────────────────────────────────
+
+# ── Phase 0: Create 2 extra users via API ────────────────────────────────
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+      U2=$(curl -s -X POST "$API/users" -H "Content-Type: application/json" \
+        -d '{"displayName":"P2"}' | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['userId'])")
+      U3=$(curl -s -X POST "$API/users" -H "Content-Type: application/json" \
+        -d '{"displayName":"P3"}' | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['userId'])")
+      echo "{\"user2\":\"$U2\",\"user3\":\"$U3\"}" > /tmp/maestro_cycle.json
+      echo "Phase 0 done — users P2=$U2 P3=$U3"
+
+# ── Phase 1: Create game via UI ──────────────────────────────────────────
+- runFlow: ../common/navigate-create.yaml
+- waitForAnimationToEnd: true
+
+# Fill game name
+- tapOn: "Enter game name..."
+- inputText: "Full Cycle"
+
+# Set fee to £10 (default is £5 — tap the + button once)
+# The FeeStepper "+" icon button sits to the right of the fee value
+- tapOn:
+    point: "84%,38%"
+    label: "Tap fee + button"
+
+# Select Premier League (opens modal)
+- tapOn: "Select leagues..."
+- waitForAnimationToEnd: true
+- tapOn: "Premier League"
+- tapOn: "Done"
+
+# Turn Rollover OFF (default is ON). Since Rollover and Split Pot are
+# mutually exclusive, toggling Split Pot ON disables Rollover.
+- tapOn: "Split Pot"
+
+# Create the game
+- tapOn: "Create Private Game"
+- waitForAnimationToEnd: true
+
+# ── Phase 1b: Verify confirm screen ──────────────────────────────────────
+- assertVisible: "Game Created!"
+- assertVisible: "Full Cycle"
+- assertVisible: "£10"
+- assertVisible: "Premier League"
+
+# ── Phase 2: Find game by name, join both users, trigger tick ────────────
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+      GID=$(curl -s "$API/games" | python3 -c "
+      import sys, json
+      games = json.load(sys.stdin)
+      if isinstance(games, list):
+          for g in games:
+              if g.get('name') == 'Full Cycle':
+                  print(g['gameId'])
+                  break
+      ")
+      U2=$(python3 -c "import json;print(json.load(open('/tmp/maestro_cycle.json'))['user2'])")
+      U3=$(python3 -c "import json;print(json.load(open('/tmp/maestro_cycle.json'))['user3'])")
+
+      curl -s -X POST "$API/games/$GID/join" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U2\",\"displayName\":\"P2\"}" > /dev/null
+      curl -s -X POST "$API/games/$GID/join" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U3\",\"displayName\":\"P3\"}" > /dev/null
+
+      # Save gameId for later phases
+      python3 -c "import json;d=json.load(open('/tmp/maestro_cycle.json'));d['gameId']='$GID';json.dump(d,open('/tmp/maestro_cycle.json','w'))"
+
+      # Trigger tick so clients see the new players
+      curl -s -X POST "$API/tick" > /dev/null
+      echo "Phase 2 done — gameId=$GID, users joined"
+
+# ── Phase 3: Navigate to game detail ─────────────────────────────────────
+# Dismiss back to home (confirm → home is dismissAll, back x3 is safe)
+- back
+- back
+- back
+- tapOn: "Account"
+- waitForAnimationToEnd: true
+
+# Game should appear in Current Games
+- assertVisible: "Full Cycle"
+- tapOn: "Full Cycle"
+- waitForAnimationToEnd: true
+
+# ── Phase 3b: Verify game detail ─────────────────────────────────────────
+- assertVisible: "Full Cycle"
+- assertVisible: "Waiting for players"   # No round started yet
+# 3 players total: creator (lms_admin) + P2 + P3
+- assertVisible: "P2"
+- assertVisible: "P3"
+
+# ── Phase 4: Add First Round (GW1) ───────────────────────────────────────
+- tapOn: "Add First Round"
+- waitForAnimationToEnd: true
+
+# Fill matchday
+- tapOn: "e.g. GW31"
+- inputText: "GW1"
+
+# Tap "Add Round"
+- tapOn:
+    text: "Add Round"
+    index: 0
+- waitForAnimationToEnd: true
+
+# Verify Round 1 appears
+- assertVisible: "Round 1"
+- assertVisible: "Pending"
+
+# Open picks for Round 1
+- tapOn: "Open Picks"
+- waitForAnimationToEnd: true
+# System alert: "Open Picks for Round 1?" — tap "Open"
+- tapOn: "Open"
+- waitForAnimationToEnd: true
+
+# Round 1 should now show "Picking"
+- assertVisible:
+    text: "Picking"
+    optional: true
+
+# ── Phase 5: Submit pick for current user (P1) via UI ────────────────────
+- back
+- waitForAnimationToEnd: true
+
+# Game detail now shows "Submit Pick" button (state=active, roundState=picking)
+- assertVisible:
+    text: "Submit Pick"
+    optional: true
+- tapOn: "Submit Pick"
+- waitForAnimationToEnd: true
+
+# Select "Arsenal" from the team list
+- assertVisible: "Arsenal"
+- tapOn: "Arsenal"
+
+# System alert: "Confirm Pick" — tap "Confirm"
+- waitForAnimationToEnd: true
+- tapOn: "Confirm"
+- waitForAnimationToEnd: true
+
+# Alert: "Pick Submitted" — tap "OK"
+- tapOn: "OK"
+- waitForAnimationToEnd: true
+
+# ── Phase 6: API — P2/P3 picks, lock, results, eliminate ─────────────────
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+      GID=$(python3 -c "import json;print(json.load(open('/tmp/maestro_cycle.json'))['gameId'])")
+      U2=$(python3 -c "import json;print(json.load(open('/tmp/maestro_cycle.json'))['user2'])")
+      U3=$(python3 -c "import json;print(json.load(open('/tmp/maestro_cycle.json'))['user3'])")
+
+      # Submit picks for P2 and P3
+      curl -s -X POST "$API/games/$GID/rounds/1/picks" \
+        -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U2\",\"teamId\":\"liverpool\",\"teamName\":\"Liverpool\"}" > /dev/null
+      curl -s -X POST "$API/games/$GID/rounds/1/picks" \
+        -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U3\",\"teamId\":\"west-ham-united\",\"teamName\":\"West Ham\"}" > /dev/null
+
+      # Lock round 1
+      curl -s -X POST "$API/games/$GID/rounds/1/lock" > /dev/null
+
+      # Submit results: Liverpool=win, Arsenal=win, West Ham=loss
+      curl -s -X POST "$API/games/$GID/rounds/1/results" \
+        -H "Content-Type: application/json" \
+        -d '{"results":[{"teamId":"liverpool","outcome":"win"},{"teamId":"arsenal","outcome":"win"},{"teamId":"west-ham-united","outcome":"loss"}]}' > /dev/null
+
+      # Apply eliminations (P3 eliminated)
+      curl -s -X POST "$API/games/$GID/rounds/1/eliminate" > /dev/null
+
+      # Trigger tick
+      curl -s -X POST "$API/tick" > /dev/null
+      echo "Phase 6 done — Round 1 complete, P3 eliminated"
+
+# ── Phase 7: Verify P3 eliminated in standings ───────────────────────────
+- back
+- tapOn: "Account"
+- tapOn: "Full Cycle"
+- waitForAnimationToEnd: true
+
+# P3 should be "Eliminated"  (close-circle icon, red)
+- assertVisible: "Eliminated"
+# P2 should be "Alive"
+- assertVisible: "Alive"
+
+# ── Phase 8: Manage Rounds → Add GW2, open picks ─────────────────────────
+- tapOn: "Manage Rounds"
+- waitForAnimationToEnd: true
+
+# Round 1 should show "Complete"
+- assertVisible: "Complete"
+
+# Fill matchday for Round 2
+- tapOn: "e.g. GW31"
+- inputText: "GW2"
+
+- tapOn:
+    text: "Add Round"
+    index: 0
+- waitForAnimationToEnd: true
+
+# Verify Round 2 appears
+- assertVisible: "Round 2"
+
+# Open picks for Round 2
+- tapOn:
+    text: "Open Picks"
+    index: 0
+- waitForAnimationToEnd: true
+- tapOn: "Open"
+- waitForAnimationToEnd: true
+
+# ── Phase 9: Submit pick "Chelsea" via UI ────────────────────────────────
+- back
+- waitForAnimationToEnd: true
+
+# Game detail → Submit Pick
+- tapOn: "Submit Pick"
+- waitForAnimationToEnd: true
+
+# Scroll down to find Chelsea (in the lower half of the list)
+- scroll
+- scroll
+
+# Select Chelsea
+- tapOn: "Chelsea"
+
+# Confirm pick alert
+- waitForAnimationToEnd: true
+- tapOn: "Confirm"
+- waitForAnimationToEnd: true
+
+# "Pick Submitted" → OK
+- tapOn: "OK"
+- waitForAnimationToEnd: true
+
+# ── Phase 10: API — P2 picks Arsenal, lock, results, eliminate ───────────
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+      GID=$(python3 -c "import json;print(json.load(open('/tmp/maestro_cycle.json'))['gameId'])")
+      U2=$(python3 -c "import json;print(json.load(open('/tmp/maestro_cycle.json'))['user2'])")
+
+      # P2 picks Arsenal for round 2
+      curl -s -X POST "$API/games/$GID/rounds/2/picks" \
+        -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U2\",\"teamId\":\"arsenal\",\"teamName\":\"Arsenal\"}" > /dev/null
+
+      # Lock round 2
+      curl -s -X POST "$API/games/$GID/rounds/2/lock" > /dev/null
+
+      # Results: Chelsea=win, Arsenal=loss
+      curl -s -X POST "$API/games/$GID/rounds/2/results" \
+        -H "Content-Type: application/json" \
+        -d '{"results":[{"teamId":"chelsea","outcome":"win"},{"teamId":"arsenal","outcome":"loss"}]}' > /dev/null
+
+      # Apply eliminations (P2 eliminated, leaving P1 as sole survivor)
+      curl -s -X POST "$API/games/$GID/rounds/2/eliminate" > /dev/null
+
+      # Trigger tick
+      curl -s -X POST "$API/tick" > /dev/null
+      echo "Phase 10 done — Round 2 complete, P2 eliminated, game finished"
+
+# ── Phase 11: Verify game completed ──────────────────────────────────────
+- back
+- tapOn: "Account"
+- tapOn: "Full Cycle"
+- waitForAnimationToEnd: true
+
+# Game Over banner
+- assertVisible: "Game Over!"
+
+# Trophy icon (Ionicons "trophy" — verify the winner banner exists)
+- assertVisible:
+    text: "Winner:"
+    optional: true
+
+# Final status should be "Completed"
+- assertVisible: "Completed"
+
+# ── Phase 12: Cleanup ────────────────────────────────────────────────────
+- runScript:
+    command: bash
+    script: rm -f /tmp/maestro_cycle.json

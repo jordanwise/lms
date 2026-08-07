@@ -1,0 +1,54 @@
+appId: com.manning.lastplayerstanding
+---
+# ── Error Cases & Validation Tests ──────────────────────────────────────
+# Verifies form validation, invalid PIN rejection, and successful creation.
+# Uses common navigators (navigate-create, navigate-join) to reach screens.
+# ───────────────────────────────────────────────────────────────────────
+
+# ── Test 1: Empty form — disabled button is a no-op ────────────────────
+- runFlow: ../common/navigate-create.yaml
+
+# Tap the "Create Private Game" button with no fields filled.
+# Button is disabled, so this should not trigger navigation.
+- tapOn: "Create Private Game"
+
+# Confirm we are still on the create screen
+- assertVisible: "Game Name"
+- assertVisible: "Create Private Game"
+
+# ── Test 2: Invalid PIN — backend rejects with alert dialog ────────────
+- runFlow: ../common/navigate-join.yaml
+
+# Type an invalid 8-character PIN into the code input
+- tapOn:
+    text: "e.g. AB12CD34"
+- inputText: "ZZZZZZZZ"
+
+# Submit via keyboard search action (returnKeyType="search")
+- pressKey: Enter
+
+# Verify the native "Not Found" alert dialog is shown
+- assertVisible: "Not Found"
+
+# Dismiss the alert dialog
+- tapOn: "OK"
+
+# ── Test 3: Valid create — fills form, selects league, confirms ────────
+- runFlow: ../common/navigate-create.yaml
+
+# Enter game name into the form
+- tapOn: "Game Name"
+- inputText: "Error Test"
+
+# Select "Premier League" from the league picker modal
+- tapOn: "Select leagues..."
+- tapOn: "Premier League"
+- tapOn: "Done"
+
+# Submit the form — button is now enabled
+- tapOn: "Create Private Game"
+
+# Verify we landed on the confirmation screen
+- assertVisible: "Game Created!"
+- assertVisible: "Error Test"
+- assertVisible: "Premier League"

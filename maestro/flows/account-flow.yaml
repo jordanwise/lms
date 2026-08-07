@@ -1,0 +1,81 @@
+appId: com.manning.lastplayerstanding
+---
+# Step 1: Setup test data via API (create user with games in different states)
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+      
+      # Create test user
+      U=$(curl -s -X POST "$API/users" -H "Content-Type: application/json" \
+        -d '{"displayName":"Account Tester"}' | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['userId'])")
+      
+      # Create active game and join user
+      G1=$(curl -s -X POST "$API/games" -H "Content-Type: application/json" \
+        -d "{\"name\":\"Active Game\",\"fee\":10,\"leagues\":[\"premier-league\"],\"rollover\":false,\"splitPot\":false,\"creatorId\":\"ac1\",\"displayName\":\"AC1\"}" | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['gameId'])")
+      curl -s -X POST "$API/games/$G1/join" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U\",\"displayName\":\"Account Tester\"}" > /dev/null
+      
+      # Create completed game and join user
+      G2=$(curl -s -X POST "$API/games" -H "Content-Type: application/json" \
+        -d "{\"name\":\"Completed Game\",\"fee\":20,\"leagues\":[\"championship\"],\"rollover\":false,\"splitPot\":false,\"creatorId\":\"ac2\",\"displayName\":\"AC2\"}" | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['gameId'])")
+      curl -s -X POST "$API/games/$G2/join" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U\",\"displayName\":\"Account Tester\"}" > /dev/null
+      # Complete the game: cancel it (so it shows in history)
+      curl -s -X POST "$API/games/$G2/cancel" > /dev/null
+      
+      echo "{\"userId\":\"$U\",\"activeGame\":\"$G1\",\"completedGame\":\"$G2\"}" > /tmp/maestro_account.json
+      echo "Setup complete"
+
+# Step 2: Navigate to Account screen
+- runFlow: ../common/navigate-account.yaml
+- waitForAnimationToEnd: true
+
+# Step 3: Verify account header
+# Note: Display name may come from device storage (lms_display_name.txt),
+# not the API-created user. Adjust assertion as needed.
+- assertVisible: "Account Tester"
+
+# Step 4: Verify active game appears in Current Games
+- assertVisible: "Active Game"
+- assertVisible: "Waiting for players"
+
+# Step 5: Navigate to Game History
+- tapOn: "Game History"
+- waitForAnimationToEnd: true
+- assertVisible: "Past Games"
+- assertVisible: "Completed Game"
+- assertVisible: "Cancelled"
+
+# Step 6: Navigate back to Account
+- back
+
+# Step 7: Navigate to Player Statistics
+- tapOn: "Player Statistics"
+- waitForAnimationToEnd: true
+# Verify stat cards appear (may show 0 if no picks data exists)
+- assertVisible: "Games Played"
+- assertVisible: "Wins"
+- assertVisible: "Win Rate"
+
+# Step 8: Navigate back, then to Account Settings
+- back
+- tapOn: "Account Settings"
+- waitForAnimationToEnd: true
+
+# Step 9: Edit display name
+- tapOn: "lms_admin"
+- eraseText: 20
+- inputText: "Maestro Test User"
+- tapOn:
+    text: "Save"
+
+# Step 10: Verify notification toggles exist
+- assertVisible: "Enable Notifications"
+
+# Step 11: Go back to Account screen
+- back
+- waitForAnimationToEnd: true

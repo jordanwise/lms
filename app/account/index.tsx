@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
-import { View, Text, ScrollView, StyleSheet, Pressable, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Pressable, ActivityIndicator, RefreshControl } from 'react-native';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, FontSize, BorderRadius } from '@/constants/theme';
 import { getOrCreateUserId, getDisplayName } from '@/lib/userId';
-import { listUserGames, type UserGame } from '@/lib/api';
+import { listUserGames, getGame, type UserGame } from '@/lib/api';
 
 type NavRowProps = {
   icon: keyof typeof Ionicons.glyphMap;
@@ -36,38 +36,71 @@ const STATUS_LABEL: Record<string, string> = {
 
 export default function AccountScreen() {
   const router = useRouter();
-  const [games, setGames] = useState<UserGame[]>([]);
+  const [games, setGames] = useState<(UserGame & { freshState?: string })[]>([]);
   const [displayName, setDisplayName] = useState('');
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const loadGames = useCallback(async (isRefresh = false) => {
+    if (isRefresh) setRefreshing(true);
+    else setLoading(true);
+    setError(null);
+
+    try {
+      const userId = await getOrCreateUserId();
+      getDisplayName().then(setDisplayName);
+
+      const result = await listUserGames(userId);
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+
+      const userGames = result.data.games;
+
+      // Fetch fresh game state for each game to fix stale denormalized state
+      const freshGames = await Promise.all(
+        userGames.map(async (g) => {
+          try {
+            const detail = await getGame(g.gameId);
+            if (detail.ok) {
+              return { ...g, freshState: detail.data.state };
+            }
+          } catch {
+            // Fall back to denormalized state
+          }
+          return g;
+        }),
+      );
+
+      setGames(freshGames);
+    } catch (err: any) {
+      setError(err?.message ?? 'Failed to load games');
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
-      let active = true;
-      setLoading(true);
-      setError(null);
-
-      getOrCreateUserId()
-        .then(userId => {
-          getDisplayName().then(setDisplayName);
-          return listUserGames(userId);
-        })
-        .then(result => {
-          if (!active) return;
-          if (result.ok) {
-            setGames(result.data.games);
-          } else {
-            setError(result.error);
-          }
-        })
-        .finally(() => { if (active) setLoading(false); });
-
-      return () => { active = false; };
-    }, []),
+      loadGames();
+    }, [loadGames]),
   );
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.content}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={() => loadGames(true)}
+          tintColor={Colors.primary}
+        />
+      }
+    >
       {/* Player header */}
       <View style={styles.playerHeader}>
         <Ionicons name="person-circle-outline" size={48} color={Colors.primary} />
@@ -100,7 +133,7 @@ export default function AccountScreen() {
             <View>
               <Text style={styles.gameName}>{game.gameName}</Text>
               <Text style={styles.gameStatus}>
-                {STATUS_LABEL[game.gameState] ?? game.gameState}
+                {STATUS_LABEL[game.freshState ?? game.gameState] ?? (game.freshState ?? game.gameState)}
                 {' · '}
                 {game.playerStatus}
               </Text>

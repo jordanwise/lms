@@ -51,6 +51,8 @@ export interface UserProfileItem {
   userId: string;
   displayName: string;
   avatarUrl?: string;
+  pushToken?: string;
+  pushTokenPlatform?: 'ios' | 'android';
   preferences: UserPreferences;
   createdAt: string; // ISO 8601
   updatedAt: string;

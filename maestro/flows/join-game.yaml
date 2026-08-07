@@ -1,0 +1,93 @@
+appId: com.manning.lastplayerstanding
+---
+# ── Join Game Flow Test ──────────────────────────────────────────────────
+# Tests the full join-game UX:
+#   1. Account screen reflects games joined via API
+#   2. PIN lookup finds games and shows a preview card
+#   3. Tapping Join navigates to the game detail screen
+#   4. Joined game appears on the Account screen
+# ─────────────────────────────────────────────────────────────────────────
+
+# ── Phase 1: Setup test data via API ─────────────────────────────────────
+# Create a user, two games, join the user to game1, capture game2's PIN.
+- runScript:
+    command: bash
+    script: |
+      API="http://localhost:3000"
+
+      # ---- Create test user ----
+      U=$(curl -s -X POST "$API/users" -H "Content-Type: application/json" \
+        -d '{"displayName":"Join Tester"}' | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['userId'])")
+
+      # ---- Game 1: pre-joined via API (verified on Account screen) ----
+      G1=$(curl -s -X POST "$API/games" -H "Content-Type: application/json" \
+        -d '{"name":"Account Join Game","fee":25,"leagues":["premier-league"],"rollover":false,"splitPot":false,"creatorId":"jt-creator","displayName":"JT"}' | \
+        python3 -c "import sys,json;print(json.load(sys.stdin)['gameId'])")
+      curl -s -X POST "$API/games/$G1/join" -H "Content-Type: application/json" \
+        -d "{\"userId\":\"$U\",\"displayName\":\"Join Tester\"}" > /dev/null
+
+      # ---- Game 2: found via PIN lookup (the core join-flow test) ----
+      G2=$(curl -s -X POST "$API/games" -H "Content-Type: application/json" \
+        -d '{"name":"PIN Lookup Game","fee":50,"leagues":["championship"],"rollover":false,"splitPot":false,"creatorId":"jt-creator2","displayName":"JT2"}')
+      PIN=$(echo "$G2" | python3 -c "import sys,json;print(json.load(sys.stdin)['pin'])")
+      GID2=$(echo "$G2" | python3 -c "import sys,json;print(json.load(sys.stdin)['gameId'])")
+
+      # Persist values for later steps
+      echo "$PIN" > /tmp/maestro_join_pin.txt
+      echo "{\"userId\":\"$U\",\"game1\":\"$G1\",\"game2\":\"$GID2\",\"pin\":\"$PIN\"}" > /tmp/maestro_join.json
+      echo "Setup: user=$U game1=$G1 game2=$GID2 pin=$PIN"
+    name: Setup test data
+
+# ── Phase 2: Verify pre-joined game on Account screen ──────────────────
+- runFlow: ../common/navigate-account.yaml
+- waitForAnimationToEnd: true
+- assertVisible: "Account Join Game"
+- assertVisible: "Waiting for players"
+
+# ── Phase 3: PIN lookup → preview → join ──────────────────────────────
+# Navigate back to the home screen, then enter the Join Game flow.
+- pressKey: back
+- tapOn: "Private Game"
+- tapOn: "Join Game"
+- assertVisible: "Enter PIN"
+
+# Read the PIN and type it into the input field.
+- runScript:
+    command: bash
+    script: cat /tmp/maestro_join_pin.txt
+    name: Read PIN from file
+    env:
+      PIN_VALUE: "${output}"
+- inputText: "${PIN_VALUE}"
+- tapOn: "Find"
+
+# Verify the game preview card renders with correct details.
+- waitForAnimationToEnd: true
+- assertVisible: "PIN Lookup Game"
+- assertVisible: "Entry Fee"
+- assertVisible: "£50"
+- assertVisible: "Players"
+
+# Tap the Join button (PrimaryButton with text "Join").
+- tapOn:
+    text: "Join"
+    index: 1
+
+# Verify we land on the game detail screen.
+- waitForAnimationToEnd: true
+- assertVisible: "PIN Lookup Game"
+- assertVisible: "Players"
+
+# ── Phase 4: Verify newly-joined game appears on Account screen ────────
+- pressKey: back
+- pressKey: back
+- tapOn: "Account"
+- waitForAnimationToEnd: true
+- assertVisible: "PIN Lookup Game"
+- assertVisible: "Account Join Game"
+
+# ── Phase 5: Cleanup temporary files ────────────────────────────────────
+- runScript:
+    command: bash
+    script: rm -f /tmp/maestro_join.json /tmp/maestro_join_pin.txt

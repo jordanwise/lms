@@ -1,0 +1,4 @@
+- runFlow: common/app-launch.yaml
+- tapOn: "Private Game"
+- tapOn: "Join Game"
+- assertVisible: "Enter PIN"

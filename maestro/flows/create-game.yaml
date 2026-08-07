@@ -1,0 +1,25 @@
+appId: com.manning.lastplayerstanding
+---
+- runFlow: ../common/navigate-create.yaml
+- waitForAnimationToEnd: true
+
+# Fill form
+- tapOn: "Enter game name..."
+- inputText: "Maestro Test Game"
+
+# Select Premier League
+- tapOn: "Premier League"
+
+# Toggle Rollover
+- tapOn: "Rollover"
+
+# Submit
+- tapOn: "Create"
+- waitForAnimationToEnd: true
+
+# Verify confirm screen
+- assertVisible: "Game Created"
+- assertVisible: "Maestro Test Game"
+- assertVisible: "GAME PIN"
+- assertVisible: "Scan to join"
+- assertVisible: "Share via WhatsApp"

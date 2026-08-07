@@ -1,153 +1,244 @@
 # Last Player Standing
 
-A sports prediction / elimination game. iOS-first, built with Expo (React Native) with a serverless AWS backend (SAM + DynamoDB).
+A sports prediction / elimination game. iOS-first, built with Expo (React Native) with a serverless AWS backend (SAM + DynamoDB), emulated locally via localstack.
 
-## Getting Started
+---
+
+## Prerequisites
+
+Install these on a fresh machine:
+
+| Tool | Check | Install |
+|------|-------|---------|
+| Node.js 20+ | `node --version` | `brew install node` or [nodejs.org](https://nodejs.org) |
+| Docker | `docker --version` | [Docker Desktop](https://docs.docker.com/get-docker/) |
+| AWS CLI | `aws --version` | `brew install awscli` |
+| AWS SAM CLI | `sam --version` | `brew install aws-sam-cli` |
+| Maestro (UI tests) | `maestro --version` | `curl -Ls "https://get.maestro.mobile.dev" \| bash` |
+| Xcode (iOS) | `xcodebuild -version` | App Store |
+
+---
+
+## 1. Clone & Install
 
 ```bash
+git clone git@github.com:YOUR_USER/lms.git lms   # ← replace with actual repo URL
+cd lms
+
+# Install frontend dependencies
 npm install
+
+# Install backend dependencies
+cd backend && npm install && cd ..
+
+# Install dev tools dependencies
+cd dev-tools && npm install && cd ..
+```
+
+---
+
+## 2. Start Backend (localstack + SAM API)
+
+```bash
+cd backend
+
+# Start localstack (Docker) — DynamoDB, EventBridge, SQS, SNS on port 4566
+docker compose up -d
+
+# Wait for localstack to be ready, then create the LMS table + seed data
+npm run local:setup
+
+# Start SAM local API on port 3000
+npm run local:api
+```
+
+**Verification:**
+```bash
+curl http://localhost:3000/games/pin/ABC12345
+# → should return seed game "Weekend Warriors"
+```
+
+---
+
+## 3. Run Backend Tests
+
+```bash
+cd backend
+npm test          # all 122 tests (state machine, API, lifecycle, tick)
+npm run test:e2e  # game lifecycle tests only (16 tests)
+```
+
+Tests run against localstack — no external services needed.
+
+---
+
+## 4. Start Frontend (Expo)
+
+```bash
+cd lms
 npx expo start
 ```
 
-Press `i` for iOS simulator or scan the QR code with Expo Go.
+Press `i` for iOS simulator.
 
-## Local Development (Full Stack)
+The app connects to `http://localhost:3000` automatically (configured in `constants/api.ts`).
 
-Run the complete backend (DynamoDB Local + SAM API) alongside the Expo app so you can create games, join, pick teams, and simulate the full elimination flow — all on your machine, no AWS account needed.
+**Seeded test game:** PIN `ABC12345` — enter this on the Join screen to explore the app.
 
-### Prerequisites
+---
 
-- [Docker](https://docs.docker.com/get-docker/)
-- [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-
-### Quick Start
+## 5. Dev Tools Admin App
 
 ```bash
-# Full stack + iOS Simulator
-npm run dev:ios
-
-# Full stack + Android Emulator
-npm run dev:android
-
-# Full stack + Web
-npm run dev:web
-
-# Backend only (run Expo yourself)
-npm run dev:backend
+cd lms/dev-tools
+npm run dev
+# Opens http://localhost:5173
 ```
 
-This starts **four services** with a single command:
+Six tabbed panels:
+- **Game Creator** — create games with configurable fee, leagues, rollover/split
+- **Players** — create test users, join games, bulk submit picks
+- **Round Manager** — add rounds, open picks, lock rounds
+- **Result Injector** — mock 10 fixtures per matchday, enter outcomes, apply eliminations
+- **Tick Trigger** — step-by-step or full-cycle tick processing
+- **Game Explorer** — fetch game by ID or PIN, view full state
 
-| Service         | URL                      |
-| --------------- | ------------------------ |
-| DynamoDB Local  | http://localhost:8000    |
-| SAM API         | http://localhost:3000    |
-| Expo (varies)   | platform-dependent       |
+Use the dev tools to inject game events while the iOS app is open to test reactive UI updates.
 
-Press **Ctrl+C** to tear everything down (DynamoDB container, SAM API, Expo).
+---
 
-### What Gets Seeded
+## 6. Maestro UI Tests (iOS Simulator)
 
-The startup seeds a game called **"Weekend Warriors"** with:
-
-- 6 users (Alice, Bob, Charlie, Diana, Eric, Fiona)
-- 6 players with mixed statuses (alive, eliminated, deferred)
-- 3 completed rounds with picks and outcomes
-- 1 deferred obligation (postponed match)
-
-### API URL Resolution
-
-The Expo app resolves the API URL per platform via `constants/api.ts`:
-
-| Platform          | API URL                      |
-| ----------------- | ---------------------------- |
-| iOS Simulator     | `http://localhost:3000`      |
-| Android Emulator  | `http://10.0.2.2:3000`      |
-| Web               | `http://localhost:3000`      |
-
-Override with `EXPO_PUBLIC_API_URL` if needed:
+Requires an iOS simulator running with the Expo dev client installed.
 
 ```bash
-EXPO_PUBLIC_API_URL=http://192.168.1.50:3000 npx expo start
+# Build the Expo dev client for iOS (one-time)
+cd lms
+npx expo run:ios
+
+# In another terminal, start the backend
+cd lms/backend
+docker compose up -d
+npm run local:setup && npm run local:api
+
+# Run Maestro tests
+cd lms/maestro
+./run-tests.sh
 ```
 
-### Backend-Only Commands
+Or via npm:
+```bash
+cd lms
+npm run test:ui
+```
 
-From the `backend/` directory you can also run services individually:
+---
+
+## 7. All-in-One Quick Start
 
 ```bash
-npm run local:db       # Start DynamoDB container
-npm run local:setup    # Create table + seed data
-npm run local:api      # Start SAM API on :3000
-npm run local:seed     # Re-seed sample data
-npm run local:reset    # Drop table + re-create + re-seed
+cd lms
+
+# Terminal 1: Backend (localstack + SAM API)
+cd backend
+docker compose up -d && npm run local:setup && cd .. && npm run dev:backend
+
+# Terminal 2: Dev tools
+cd dev-tools && npm run dev
+
+# Terminal 3: Expo
+npx expo start
+# Press i for iOS
+
+# Terminal 4: Backend tests
+cd backend && npm test
 ```
+
+---
+
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────┐
+│  iOS Simulator (Expo / React Native)                │
+│  ┌──────────┐  ┌──────────┐  ┌──────────────────┐  │
+│  │ Create   │  │ Join     │  │ Game Detail      │  │
+│  │ Game     │  │ by PIN   │  │ (rounds, picks,  │  │
+│  │          │  │          │  │  results)         │  │
+│  └──────────┘  └──────────┘  └──────────────────┘  │
+│  ┌──────────────────────────────────────────────┐   │
+│  │ Account (history, stats, settings)            │   │
+│  └──────────────────────────────────────────────┘   │
+└──────────────────────┬──────────────────────────────┘
+                       │ HTTP :3000
+┌──────────────────────▼──────────────────────────────┐
+│  SAM Local API Gateway (:3000)                       │
+│  ┌─────────┐ ┌─────────┐ ┌──────────┐ ┌────────┐   │
+│  │ create  │ │  join   │ │ addRound │ │  tick  │   │
+│  │ Game    │ │  Game   │ │ openPick │ │ manual │   │
+│  └─────────┘ └─────────┘ └──────────┘ └────────┘   │
+│  ... 21 Lambda handlers total ...                    │
+└──────────────────────┬──────────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────────┐
+│  localstack (:4566)                                  │
+│  ┌──────────┐  ┌──────────────┐  ┌──────────────┐   │
+│  │ DynamoDB │  │ EventBridge  │  │ SQS / SNS    │   │
+│  │ (LMS)    │  │ (tick/5min)  │  │ (notify)     │   │
+│  └──────────┘  └──────────────┘  └──────────────┘   │
+└─────────────────────────────────────────────────────┘
+```
+
+| Service | URL | Purpose |
+|---------|-----|---------|
+| SAM API | `http://localhost:3000` | All game/user/tick endpoints |
+| localstack | `http://localhost:4566` | DynamoDB, EventBridge, SQS, SNS |
+| Dev Tools | `http://localhost:5173` | Admin UI for game event injection |
+| Expo | `http://localhost:8081` | Metro bundler |
+
+---
 
 ## Project Structure
 
 ```
-├── app/                  Expo Router screens
-│   ├── index.tsx         Home screen
-│   ├── private/create    Create Private Game
-│   ├── private/join      Join Private Game
-│   ├── public/create     Create Public Game
-│   └── public/join       Join Public Game
-├── backend/              SAM serverless backend
-│   ├── template.yaml     SAM/CloudFormation template
-│   ├── src/handlers/     Lambda function handlers
-│   ├── docker-compose.yml DynamoDB Local config
-│   ├── env.local.json    Local env vars for SAM
-│   └── scripts/          DB setup, seed, reset scripts
-├── components/ui/        Reusable UI components
-├── constants/
-│   ├── api.ts            API URL config (platform-aware)
-│   └── theme.ts          Colors, spacing, typography
-├── dojo/                 Web dashboard (Vite + React)
-├── scripts/
-│   └── dev-local.sh      Full-stack local dev orchestrator
-└── figma/                Figma design links
+lms/
+├── app/                    Expo Router screens
+│   ├── index.tsx           Home screen
+│   ├── _layout.tsx         Root layout + deep link handler
+│   ├── private/            Create/Join/Confirm Private Game
+│   ├── public/             Create/Join Public Game (stubs)
+│   ├── account/            Account, History, Statistics, Settings
+│   └── game/[gameId]/      Game detail, Rounds, Pick, Results
+├── backend/                SAM serverless backend
+│   ├── template.yaml       SAM template (21 functions)
+│   ├── docker-compose.yml  localstack config
+│   ├── env.local.json      Local env vars for all functions
+│   ├── src/
+│   │   ├── handlers/       21 Lambda handlers
+│   │   ├── lib/            DynamoDB, state machine, fixtures, tick processor
+│   │   ├── types/          TypeScript types
+│   │   └── __tests__/      122 tests (4 suites)
+│   └── scripts/            Setup, seed, reset, start-local, dev-server
+├── dev-tools/              Admin web app (Vite + JS)
+│   └── src/panels/         Game Creator, Players, Round Manager, Result Injector,
+│                           Tick Trigger, Game Explorer
+├── maestro/                iOS UI tests
+│   ├── .maestro/config.yaml
+│   ├── common/             Shared sub-flows + API helper
+│   └── flows/              7 test flows
+├── components/ui/          Reusable UI components
+├── constants/              Theme, API URL, state machine
+├── lib/                    API client, userId, notifications
+└── scripts/                dev-local.sh orchestrator
 ```
-
-## Figma Integration (Deferred)
-
-Figma MCP guides are included for when a proper license is acquired.
-See `figma_setup.md` and `figma_connect.md` for details.
 
 ---
 
-## Known Limitations & TODOs
+## Known Limitations
 
-### Auth & Identity
-
-Currently there is **no real authentication**. A random UUID is generated on first launch and persisted in `expo-secure-store` (`lib/userId.ts`). This acts as a temporary device-local user identity.
-
-**Implications:**
-- No login/logout — identity is tied to a single device install
-- Uninstalling the app or clearing app storage generates a new UUID, losing all game associations
-- No way to recover access to games from a different device
-- No user profiles — display name is entered fresh on each game create/join
-
-**When implementing auth, replace:**
-- `lib/userId.ts` → swap `getOrCreateUserId()` with the real auth provider's user ID (e.g. Cognito `sub`, Firebase UID)
-- `lib/api.ts` → add `Authorization` header with the auth token
-- `backend/src/handlers/createUser.ts` → wire up to the auth provider's user creation hook
-- Display name → persist as a user profile in DynamoDB and reuse across games
-
-### Game State Model
-
-`createGame` currently creates games directly in `waiting_for_players` state, skipping the `created → waiting_for_players` transition that `shareGame.ts` was originally designed to handle. The intent was to support a "draft/invite" mode before opening the game to joiners.
-
-**When implementing the full invite flow:**
-- Restore `created` as the initial state
-- Use `shareGame` to transition to `waiting_for_players`
-- Consider requiring the creator to explicitly open the game before the PIN is shareable
-
-### PIN Uniqueness
-
-Game PINs are randomly generated but uniqueness is not strictly enforced — there is no conditional write guarding against collision. In practice, the 8-character alphanumeric PIN space (~2.8 trillion combinations) makes collisions extremely unlikely, but a production system should add a uniqueness check (e.g. conditional `PutItem` on the GSI1 PIN key with retry on conflict).
-
-### Stale Game State in Account Screen
-
-`PlayerItem.gameState` (used by `listUserGames`) is a snapshot written at join time and is **not updated** when the game transitions state. Active games will show `waiting_for_players` until a fan-out update mechanism is added to all game-state transition handlers.
+- **No auth** — device-local UUID as identity, no cross-device access
+- **Stale gameState** on PlayerItem (denormalized snapshot); frontend fetches fresh state as workaround
+- **PIN uniqueness** not enforced (extremely unlikely collision in practice)
+- **Push notifications** infrastructure built but requires Expo Push API + real device for end-to-end testing
+- **No AWS account required** — everything runs locally via localstack
 

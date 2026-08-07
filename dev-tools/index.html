@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LMS Dev Tools</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <header id="app-header">
+    <h1>🛠️ LMS Dev Tools</h1>
+    <div id="connection-status"></div>
+  </header>
+
+  <nav id="tab-nav">
+    <button data-tab="game-creator" class="tab active">Game Creator</button>
+    <button data-tab="player-creator" class="tab">Players</button>
+    <button data-tab="round-manager" class="tab">Round Manager</button>
+    <button data-tab="result-injector" class="tab">Result Injector</button>
+    <button data-tab="tick-trigger" class="tab">Tick Trigger</button>
+    <button data-tab="game-explorer" class="tab">Game Explorer</button>
+  </nav>
+
+  <main id="app-main">
+    <section id="panel-game-creator" class="panel active"></section>
+    <section id="panel-player-creator" class="panel"></section>
+    <section id="panel-round-manager" class="panel"></section>
+    <section id="panel-result-injector" class="panel"></section>
+    <section id="panel-tick-trigger" class="panel"></section>
+    <section id="panel-game-explorer" class="panel"></section>
+  </main>
+
+  <div id="toast-container"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

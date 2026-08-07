@@ -1,13 +1,18 @@
-import { View, Text, ScrollView, Alert, StyleSheet, Pressable } from 'react-native';
+import { View, Text, ScrollView, Share, StyleSheet, Pressable } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import QRCode from 'react-native-qrcode-svg';
 import { Colors, Spacing, FontSize, BorderRadius } from '@/constants/theme';
 
 type ShareMethod = 'WhatsApp' | 'Text' | 'Messenger';
 
-function ShareButton({ method, icon }: { method: ShareMethod; icon: keyof typeof Ionicons.glyphMap }) {
-  const handleShare = () => {
-    Alert.alert('Coming Soon', `Sharing via ${method} will be available soon.`);
+function ShareButton({ method, icon, message }: { method: ShareMethod; icon: keyof typeof Ionicons.glyphMap; message: string }) {
+  const handleShare = async () => {
+    try {
+      await Share.share({ message });
+    } catch {
+      // User cancelled or share failed — no action needed
+    }
   };
 
   return (
@@ -70,10 +75,35 @@ export default function ConfirmPrivateGame() {
       {/* Share section */}
       <Text style={styles.sectionTitle}>Share with friends</Text>
 
+      {/* QR Code */}
+      {params.gamePin && (
+        <View style={styles.qrContainer}>
+          <Text style={styles.qrLabel}>Scan to join</Text>
+          <QRCode
+            value={`lms://join/${params.gamePin}`}
+            size={200}
+            color={Colors.text}
+            backgroundColor={Colors.surface}
+          />
+        </View>
+      )}
+
       <View style={styles.shareContainer}>
-        <ShareButton method="WhatsApp" icon="logo-whatsapp" />
-        <ShareButton method="Text" icon="chatbubble-outline" />
-        <ShareButton method="Messenger" icon="paper-plane-outline" />
+        <ShareButton
+          method="WhatsApp"
+          icon="logo-whatsapp"
+          message={`Join my Last Man Standing game! PIN: ${params.gamePin ?? ''}\n\nlms://join/${params.gamePin ?? ''}`}
+        />
+        <ShareButton
+          method="Text"
+          icon="chatbubble-outline"
+          message={`Join my Last Man Standing game! PIN: ${params.gamePin ?? ''}\n\nlms://join/${params.gamePin ?? ''}`}
+        />
+        <ShareButton
+          method="Messenger"
+          icon="paper-plane-outline"
+          message={`Join my Last Man Standing game! PIN: ${params.gamePin ?? ''}\n\nlms://join/${params.gamePin ?? ''}`}
+        />
       </View>
 
 
@@ -144,6 +174,19 @@ const styles = StyleSheet.create({
   shareContainer: {
     gap: Spacing.sm,
     marginBottom: Spacing.xl,
+  },
+  qrContainer: {
+    alignItems: 'center',
+    backgroundColor: Colors.surface,
+    borderRadius: BorderRadius.lg,
+    padding: Spacing.lg,
+    marginBottom: Spacing.lg,
+  },
+  qrLabel: {
+    fontSize: FontSize.md,
+    fontWeight: '600',
+    color: Colors.textSecondary,
+    marginBottom: Spacing.md,
   },
   shareButton: {
     flexDirection: 'row',

@@ -1,12 +1,22 @@
 services:
-  dynamodb-local:
-    image: amazon/dynamodb-local:latest
-    container_name: lms-dynamodb
+  localstack:
+    image: localstack/localstack:latest
+    container_name: lms-localstack
     ports:
-      - "8000:8000"
-    command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
+      - "4566:4566"
+    environment:
+      - SERVICES=dynamodb,events,lambda,apigateway,sqs,sns
+      - DEBUG=0
+      - PERSISTENCE=1
+      - DATA_DIR=/var/lib/localstack/data
+    volumes:
+      - localstack-data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - lms-net
+
+volumes:
+  localstack-data:
 
 networks:
   lms-net:

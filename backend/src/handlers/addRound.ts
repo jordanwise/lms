@@ -1,9 +1,31 @@
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { getItem, transactWrite, tableName } from '../lib/dynamo';
-import { Keys } from '../lib/keys';
+import { getItem, queryItems, transactWrite, tableName } from '../lib/dynamo';
+import { Keys, SKPrefix } from '../lib/keys';
 import { canTransition, applyTransition, compositeState } from '../lib/stateMachine';
+import type { PlayerItem } from '../types';
 import { created, notFound, badRequest, conflict, serverError, parseBody } from '../lib/response';
 import type { GameMetaItem, AddRoundRequest, RoundItem } from '../types';
+
+async function buildGuardContext(game: GameMetaItem) {
+  const players = await queryItems({
+    KeyConditionExpression: 'PK = :pk AND begins_with(SK, :sk)',
+    ExpressionAttributeValues: {
+      ':pk': `GAME#${game.gameId}`,
+      ':sk': SKPrefix.PLAYER,
+    },
+  }) as PlayerItem[];
+
+  const alivePlayers = players.filter(
+    (p) => p.status === 'alive' || p.status === 'deferred'
+  ).length;
+
+  return {
+    alivePlayers,
+    totalPlayers: game.playerCount,
+    rollover: game.rollover,
+    splitPot: game.splitPot,
+  };
+}
 
 export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
   try {
@@ -17,11 +39,14 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
     const game = await getItem(Keys.gameMeta(gameId)) as GameMetaItem | undefined;
     if (!game) return notFound('Game not found');
 
-    if (!canTransition(game.state, game.roundState, 'ADD_ROUND')) {
+    // Build guard context: count alive players for guarded transitions
+    const guardCtx = await buildGuardContext(game);
+
+    if (!canTransition(game.state, game.roundState, 'ADD_ROUND', guardCtx)) {
       return conflict(`Cannot add round in state: ${compositeState(game.state, game.roundState)}`);
     }
 
-    const newState = applyTransition(game.state, game.roundState, 'ADD_ROUND');
+    const newState = applyTransition(game.state, game.roundState, 'ADD_ROUND', guardCtx);
     const roundNum = game.currentRound + 1;
     const now = new Date().toISOString();
 
@@ -52,7 +77,7 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
             ExpressionAttributeNames: { '#state': 'state' },
             ExpressionAttributeValues: {
               ':state': newState.gameState,
-              ':roundState': newState.roundState ?? null,
+              ':roundState': newState.roundState ?? 'pending',
               ':round': roundNum,
               ':now': now,
               ':one': 1,

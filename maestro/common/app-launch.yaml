@@ -1,0 +1,6 @@
+appId: com.manning.lastplayerstanding
+---
+- launchApp:
+    clearState: true
+- assertVisible: "Private Game"
+- assertVisible: "Account"

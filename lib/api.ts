@@ -72,9 +72,14 @@ export interface GameDetail {
   rollover: boolean;
   splitPot: boolean;
   state: string;
+  roundState?: string;
+  currentRound?: number;
   prizePool: number;
   playerCount: number;
+  creatorId?: string;
   players: { userId: string; displayName: string; status: string; joinedAt: string }[];
+  rounds?: RoundDetail[];
+  picks?: PickDetail[];
 }
 
 export function getGame(gameId: string) {
@@ -131,4 +136,86 @@ export interface UserGame {
 
 export function listUserGames(userId: string) {
   return request<{ games: UserGame[] }>('GET', `/users/${userId}/games`);
+}
+
+// ── Round ────────────────────────────────────────────────────────────────────
+
+export interface RoundDetail {
+  roundNum: number;
+  state: string;
+  matchday: string;
+  leagueId: string;
+  deadline?: string;
+  createdAt: string;
+}
+
+export interface PickDetail {
+  roundNum: number;
+  userId: string;
+  teamId: string;
+  teamName: string;
+  outcome?: string;
+  pickedAt: string;
+}
+
+export function addRound(gameId: string, matchday: string, leagueId: string, deadline?: string) {
+  return request<RoundDetail>('POST', `/games/${gameId}/rounds`, { matchday, leagueId, deadline });
+}
+
+export function openPicks(gameId: string, roundNum: number) {
+  return request<{ roundNum: number; state: string }>('POST', `/games/${gameId}/rounds/${roundNum}/open`);
+}
+
+export function submitPick(gameId: string, roundNum: number, userId: string, teamId: string, teamName: string) {
+  return request<PickDetail>('POST', `/games/${gameId}/rounds/${roundNum}/picks`, { userId, teamId, teamName });
+}
+
+export function lockRound(gameId: string, roundNum: number) {
+  return request<{ roundNum: number; state: string }>('POST', `/games/${gameId}/rounds/${roundNum}/lock`);
+}
+
+export function submitResults(gameId: string, roundNum: number, results: Array<{teamId: string, outcome: string}>) {
+  return request<{ roundNum: number; state: string }>('POST', `/games/${gameId}/rounds/${roundNum}/results`, { results });
+}
+
+export function applyEliminations(gameId: string, roundNum: number) {
+  return request<{ roundNum: number; state: string }>('POST', `/games/${gameId}/rounds/${roundNum}/eliminate`);
+}
+
+// ── User ──────────────────────────────────────────────────────────────────────
+
+export interface UserProfile {
+  userId: string;
+  displayName: string;
+  avatarUrl?: string;
+  preferences: {
+    notificationsEnabled: boolean;
+    notifyOnRoundOpen: boolean;
+    notifyOnDeadlineReminder: boolean;
+    notifyOnResults: boolean;
+    notifyOnElimination: boolean;
+    theme: 'dark' | 'light';
+    favouriteLeagues: string[];
+  };
+  createdAt: string;
+}
+
+export function getUser(userId: string) {
+  return request<UserProfile>('GET', `/users/${userId}`);
+}
+
+export function updatePreferences(userId: string, preferences: Record<string, unknown>) {
+  return request<{ preferences: Record<string, unknown> }>(
+    'PATCH',
+    `/users/${userId}/preferences`,
+    preferences,
+  );
+}
+
+export function registerPushToken(userId: string, pushToken: string, platform: string = 'ios') {
+  return request<{ userId: string; pushTokenRegistered: boolean }>(
+    'PUT',
+    `/users/${userId}/push-token`,
+    { pushToken, platform },
+  );
 }
