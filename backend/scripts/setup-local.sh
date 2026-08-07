@@ -6,11 +6,22 @@ BACKEND_DIR="$(dirname "$SCRIPT_DIR")"
 
 cd "$BACKEND_DIR"
 
+# Set dummy AWS credentials for localstack
+export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-test}"
+export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-test}"
+export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-local}"
+
 echo "🐳 Starting localstack..."
-docker-compose up -d
+docker run -d --name lms-localstack -p 4566:4566 \
+  -e SERVICES=dynamodb,events,lambda,apigateway,sqs,sns \
+  -e DEBUG=0 \
+  localstack/localstack:3.8 2>/dev/null || true
 
 echo "⏳ Waiting for localstack to be ready..."
-until aws dynamodb list-tables --endpoint-url http://localhost:4566 --region local --no-cli-pager 2>/dev/null; do
+for i in $(seq 1 30); do
+  if aws dynamodb list-tables --endpoint-url http://localhost:4566 --region local 2>/dev/null; then
+    break
+  fi
   sleep 1
 done
 
@@ -41,8 +52,7 @@ aws dynamodb create-table \
         "Projection": {"ProjectionType":"ALL"}
       }
     ]' \
-  --billing-mode PAY_PER_REQUEST \
-  --no-cli-pager 2>/dev/null || echo "  (table may already exist)"
+  --billing-mode PAY_PER_REQUEST 2>/dev/null || echo "  (table may already exist)"
 
 echo "🌱 Seeding sample data..."
 "$SCRIPT_DIR/seed-data.sh"
