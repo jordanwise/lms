@@ -17,20 +17,13 @@ const game = {
   leagues: ['premier-league'],
   rollover: true,
   splitPot: false,
-  state: 'active',
-  roundState: 'complete',
-  currentRound: 3,
-  prizePool: 60,
-  playerCount: 6,
+  state: 'waiting_for_players',
+  roundState: 'pending',
+  currentRound: 0,
+  prizePool: 0,
+  playerCount: 0,
   creatorId: 'user-alice',
-  players: [
-    { userId: 'user-alice', displayName: 'Alice', status: 'alive', joinedAt: '2026-03-10T12:00:00Z' },
-    { userId: 'user-bob', displayName: 'Bob', status: 'alive', joinedAt: '2026-03-10T13:00:00Z' },
-    { userId: 'user-charlie', displayName: 'Charlie', status: 'eliminated', joinedAt: '2026-03-10T14:00:00Z' },
-    { userId: 'user-diana', displayName: 'Diana', status: 'alive', joinedAt: '2026-03-10T15:00:00Z' },
-    { userId: 'user-eric', displayName: 'Eric', status: 'eliminated', joinedAt: '2026-03-11T08:00:00Z' },
-    { userId: 'user-fiona', displayName: 'Fiona', status: 'deferred', joinedAt: '2026-03-11T09:00:00Z' },
-  ],
+  players: [],
   rounds: [
     { roundNum: 1, state: 'complete', matchday: 'GW28', leagueId: 'premier-league', deadline: '2026-03-15T12:30:00Z' },
     { roundNum: 2, state: 'complete', matchday: 'GW29', leagueId: 'premier-league', deadline: '2026-03-22T12:30:00Z' },
@@ -132,6 +125,22 @@ const routes: Array<{ method: string; pattern: RegExp; handler: RouteHandler }> 
         }
       }
       return { status: 200, body: { games: [] } }
+    },
+  },
+  {
+    method: 'POST',
+    pattern: /^\/games\/([^/]+)\/join$/,
+    handler: (params) => {
+      // Mock join — just returns success so the frontend demo flow works
+      return {
+        status: 200,
+        body: {
+          gameId: params.gameId,
+          userId: 'user-demo',
+          displayName: 'Demo Player',
+          status: 'alive',
+        },
+      }
     },
   },
 ]
