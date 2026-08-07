@@ -22,8 +22,7 @@ Install these on a fresh machine:
 ## 1. Clone & Install
 
 ```bash
-git clone git@github.com:YOUR_USER/lms.git lms   # ← replace with actual repo URL
-cd lms
+git clone git@github.com:jordanwise/lms.git && cd lms
 
 # Install frontend dependencies
 npm install
